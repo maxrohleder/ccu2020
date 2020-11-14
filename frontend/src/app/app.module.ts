@@ -19,7 +19,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
         'user_friends'
       ],
       customParameters: {
-        'auth_type': 'reauthenticate'
+        auth_type: 'reauthenticate'
       },
       provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID
     },
