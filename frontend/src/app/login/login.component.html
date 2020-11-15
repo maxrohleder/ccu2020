@@ -1,7 +1,12 @@
-<h1>Covid Travel Buddy Login</h1>
+<div class="login">
+  <h1>Covid Travel Buddy Login</h1>
 
-<firebase-ui (signInSuccessWithAuthResult)="successCallback($event)"
-             (signInFailure)="errorCallback($event)"
-             (uiShown)="uiShownCallback()"></firebase-ui>
-             
-<button (click)="logout()">Logout</button>
+  <firebase-ui
+    (signInSuccessWithAuthResult)="successCallback($event)"
+    (signInFailure)="errorCallback($event)"
+    (uiShown)="uiShownCallback()"
+  ></firebase-ui>
+
+  <button (click)="logout()">Logout</button>
+  <mat-spinner></mat-spinner>
+</div>

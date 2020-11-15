@@ -1,19 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { FirebaseUISignInFailure, FirebaseUISignInSuccessWithAuthResult } from 'firebaseui-angular';
+import {
+  FirebaseUISignInFailure,
+  FirebaseUISignInSuccessWithAuthResult,
+} from 'firebaseui-angular';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.sass']
+  styleUrls: ['./login.component.sass'],
 })
 export class LoginComponent implements OnInit {
-
-  constructor(private afAuth: AngularFireAuth, private router: Router) { }
+  constructor(private afAuth: AngularFireAuth, private router: Router) {}
 
   ngOnInit(): void {
-    this.afAuth.authState.subscribe(d => console.log('Subscribing to auth changes', d));
+    this.afAuth.authState.subscribe((d) =>
+      console.log('Subscribing to auth changes', d)
+    );
   }
 
   logout(): void {
@@ -21,9 +25,8 @@ export class LoginComponent implements OnInit {
     this.afAuth.signOut();
   }
 
-  successCallback(data: FirebaseUISignInSuccessWithAuthResult): void{
+  successCallback(data: FirebaseUISignInSuccessWithAuthResult): void {
     console.log('successCallback', data);
-    console.log(data.authResult.user.email);
     // for development of login redirect to main. later move login to /login
     // this.router.navigate(['']);
   }
