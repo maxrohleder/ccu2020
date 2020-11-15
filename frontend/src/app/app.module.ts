@@ -1,3 +1,4 @@
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { firebaseUiAuthConfig } from './firebase-config';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -19,6 +20,7 @@ import { LoginComponent } from './login/login.component';
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
     FirebaseUIModule.forFeature({ tosUrl: 'LOGIN_MODULE' }),
     BrowserAnimationsModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
