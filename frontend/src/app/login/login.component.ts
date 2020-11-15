@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
 
   successCallback(data: FirebaseUISignInSuccessWithAuthResult): void{
     console.log('successCallback', data);
+    console.log(data.authResult.user.email);
     // for development of login redirect to main. later move login to /login
     // this.router.navigate(['']);
   }
