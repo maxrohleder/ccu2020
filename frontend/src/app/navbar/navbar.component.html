@@ -7,21 +7,17 @@
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
+    <button mat-menu-item (click)="goToProfile()">
       <mat-icon>dialpad</mat-icon>
-      <span>Redial</span>
+      <span>Profile</span>
     </button>
-    <button mat-menu-item disabled>
+    <button mat-menu-item (click)="goToDashboard()">
       <mat-icon>voicemail</mat-icon>
-      <span>Check voice mail</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>notifications_off</mat-icon>
-      <span>Disable alerts</span>
+      <span>Dashboard</span>
     </button>
   </mat-menu>
 
-  <span>My App</span>
+  <span>Covid Travel Buddy</span>
   <span class="example-spacer"></span>
   <button
     mat-icon-button
