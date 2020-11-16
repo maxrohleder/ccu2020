@@ -30,7 +30,6 @@ import { NavbarComponent } from './navbar/navbar.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
-    FirebaseUIModule.forFeature({ tosUrl: 'LOGIN_MODULE' }),
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatToolbarModule,
