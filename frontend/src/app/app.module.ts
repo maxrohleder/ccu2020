@@ -1,4 +1,3 @@
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { firebaseUiAuthConfig } from './fb-auth-config';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -31,7 +30,6 @@ import { NavbarComponent } from './navbar/navbar.component';
     AngularFireAuthModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
     BrowserAnimationsModule,
-    MatProgressSpinnerModule,
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
