@@ -1,1 +1,109 @@
-<p>dashboard works!</p>
+<div></div>
+<div class="dashboard-welcome">
+  <h2>Welcome,</h2>
+  <h2>Plan your Travel</h2>
+</div>
+
+<div class="dashboard-transport">
+  <p>Choose type of transport</p>
+  <div class="button-row">
+    <div class="flex-container">
+      <div class="button-container">
+        <button
+          mat-fab
+          color="primary"
+          aria-label="icon button with a send icon"
+        >
+          <mat-icon>send</mat-icon>
+        </button>
+      </div>
+      <div class="button-container">
+        <button
+          mat-fab
+          color="accent"
+          aria-label="icon button with a directions_car icon"
+        >
+          <mat-icon>directions_car</mat-icon>
+        </button>
+      </div>
+      <div class="button-container">
+        <button
+          mat-fab
+          color="warn"
+          aria-label="icon button with a directions_bus icon"
+        >
+          <mat-icon>directions_bus</mat-icon>
+        </button>
+      </div>
+      <div class="button-container">
+        <button
+          mat-fab
+          color="primary"
+          aria-label="icon button with a directions_boat icon"
+        >
+          <mat-icon>directions_boat</mat-icon>
+        </button>
+      </div>
+      <div class="button-container">
+        <button
+          mat-fab
+          color="primary"
+          aria-label="icon button with a exposure_plus_1 icon"
+        >
+          <mat-icon>exposure_plus_1</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-travel">
+  <p>From</p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Outline form field</mat-label>
+      <input matInput placeholder="Placeholder" />
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>To</p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Outline form field</mat-label>
+      <input matInput placeholder="Placeholder" />
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p>
+</div>
+
+<div class="dashboard-date">
+  <p>Choose dates (mat-label not working 100%)</p>
+
+  <p>
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input
+        matInput
+        placeholder="date of departure"
+        [matDatepicker]="picker1"
+      />
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+    <button mat-raised-button (click)="picker1.open()">Open</button>
+  </p>
+
+  <p>
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput placeholder="date of arrival" [matDatepicker]="picker2" />
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+    <button mat-raised-button (click)="picker2.open()">Open</button>
+  </p>
+</div>
+
+<div class="dashboard-end">
+  <button mat-raised-button color="primary">Create Checklist</button>
+</div>

@@ -15,6 +15,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +38,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
