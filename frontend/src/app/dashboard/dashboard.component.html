@@ -58,49 +58,45 @@
 </div>
 
 <div class="dashboard-travel">
-  <p>From</p>
+  <p>From (mat-form-field bugged? dunno what to do)</p>
   <p>
     <mat-form-field appearance="outline">
-      <mat-label>Outline form field</mat-label>
-      <input matInput placeholder="Placeholder" />
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-hint>Hint</mat-hint>
+      <mat-label>Start Location</mat-label>
+      <input matInput placeholder="placeholder" />
+      <mat-icon matSuffix>location_on</mat-icon>
+      <mat-hint>Where does your journey start?</mat-hint>
     </mat-form-field>
   </p>
   <p>To</p>
   <p>
     <mat-form-field appearance="outline">
-      <mat-label>Outline form field</mat-label>
+      <mat-label>Destination</mat-label>
       <input matInput placeholder="Placeholder" />
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-hint>Hint</mat-hint>
+      <mat-icon matSuffix>location_on</mat-icon>
+      <mat-hint>Where do you want to go?</mat-hint>
     </mat-form-field>
   </p>
 </div>
 
 <div class="dashboard-date">
-  <p>Choose dates (mat-label not working 100%)</p>
+  <p>Choose dates</p>
 
   <p>
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label>Choose a date</mat-label>
-      <input
-        matInput
-        placeholder="date of departure"
-        [matDatepicker]="picker1"
-      />
+      <input matInput [matDatepicker]="picker1" />
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
       <mat-datepicker #picker1></mat-datepicker>
     </mat-form-field>
-    <button mat-raised-button (click)="picker1.open()">Open</button>
   </p>
 
   <p>
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label>Choose a date</mat-label>
-      <input matInput placeholder="date of arrival" [matDatepicker]="picker2" />
+      <input matInput [matDatepicker]="picker2" />
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
     </mat-form-field>
-    <button mat-raised-button (click)="picker2.open()">Open</button>
   </p>
 </div>
 
