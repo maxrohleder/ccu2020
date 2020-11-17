@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { AccountService } from '../account.service';
 
 @Component({
@@ -17,9 +11,9 @@ export class DashboardComponent implements OnInit {
   constructor(private account: AccountService) {}
 
   user = {
-    email: this.account.email,
     first: this.account.first,
     last: this.account.first,
+    email: this.account.email,
     loggedIn: null, //this.account.loggedIn //TODO
   };
   input = {
@@ -30,7 +24,7 @@ export class DashboardComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.user['first'] = 'Peter'; //for  test
+    this.user['first'] = 'Max'; //for  test
     this.user['loggedIn'] = true; //for  test
   }
 
