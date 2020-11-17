@@ -1,7 +1,19 @@
-<div></div>
-<div class="dashboard-welcome">
-  <h2>Welcome,</h2>
-  <h2>Plan your Travel</h2>
+<div class="dashboard-welcome" [ngSwitch]="user.loggedIn">
+  <section *ngIf="user.loggedIn; else elseBlock">
+    <h2>
+      <p>
+        Welcome {{ user.first }}, <br />
+        Plan your Travel!
+      </p>
+    </h2>
+  </section>
+  <ng-template #elseBlock>
+    <section>
+      <h2>
+        <p>Welcome, <br />Plan your Travel</p>
+      </h2>
+    </section>
+  </ng-template>
 </div>
 
 <div class="dashboard-transport">
@@ -65,7 +77,7 @@
       <input
         matInput
         placeholder="placeholder"
-        [formControl]="startPlace"
+        [formControl]="input.startPlace"
         required
       />
       <mat-icon matSuffix>location_on</mat-icon>
@@ -79,7 +91,7 @@
       <input
         matInput
         placeholder="Placeholder"
-        [formControl]="endPlace"
+        [formControl]="input.endPlace"
         required
       />
       <mat-icon matSuffix>location_on</mat-icon>
@@ -97,7 +109,7 @@
       <input
         matInput
         [matDatepicker]="picker1"
-        [formControl]="startDate"
+        [formControl]="input.startDate"
         required
       />
       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -112,7 +124,7 @@
       <input
         matInput
         [matDatepicker]="picker2"
-        [formControl]="endDate"
+        [formControl]="input.endDate"
         required
       />
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>

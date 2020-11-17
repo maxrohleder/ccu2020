@@ -16,22 +16,32 @@ import { AccountService } from '../account.service';
 export class DashboardComponent implements OnInit {
   constructor(private account: AccountService) {}
 
-  user = this.account.email;
+  user = {
+    email: this.account.email,
+    first: this.account.first,
+    last: this.account.first,
+    loggedIn: null, //this.account.loggedIn //TODO
+  };
+  input = {
+    startPlace: new FormControl(),
+    endPlace: new FormControl(),
+    startDate: new FormControl(),
+    endDate: new FormControl(),
+  };
 
-  startPlace = new FormControl();
-  endPlace = new FormControl();
-  startDate = new FormControl();
-  endDate = new FormControl();
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.user['first'] = 'Peter'; //for  test
+    this.user['loggedIn'] = true; //for  test
+  }
 
   submit(): void {
-    console.log('startPlac: ' + this.startPlace.value);
-    console.log('endPlace: ' + this.endPlace.value);
-    console.log('startDate: ' + this.startDate.value);
-    console.log('endDate: ' + this.endDate.value);
+    console.log('startPlac: ' + this.input['startPlace'].value);
+    console.log('endPlace: ' + this.input['endPlace'].value);
+    console.log('startDate: ' + this.input['startDate'].value);
+    console.log('endDate: ' + this.input['endDate'].value);
 
-    console.log('user: ' + this.user);
+    console.log('user: ' + this.user.first);
+    this.user.loggedIn = !this.user.loggedIn; //test
   }
   goToProfile(): void {
     console.log('hello world');
