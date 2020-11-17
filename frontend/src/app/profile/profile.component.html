@@ -1,1 +1,147 @@
-<p>profile works!</p>
+<div class="profile-head">
+  <section *ngIf="user.loggedIn; else elseBlock">
+    <h2>
+      <p>{{ user.first }}, {{ user.last }}</p>
+      <img
+        src="https://avatars1.githubusercontent.com/u/42830642?s=400&u=55ada5125493fefb7b50eb5a331c2f6e6b263f0b&v=4"
+        alt="profil"
+      />
+    </h2>
+  </section>
+  <ng-template #elseBlock>
+    <section>
+      <h2>
+        <p>Welcome, <br />Plan your Travel</p>
+      </h2>
+      <img
+        src="https://avatars1.githubusercontent.com/u/65280810?s=400&v=4"
+        alt="default"
+      />
+    </section>
+  </ng-template>
+</div>
+
+<div class="profile-details">
+  <p>Personal Details</p>
+  <mat-icon>date_range</mat-icon> {{ user.bday }} <br />
+  <mat-icon>location_on</mat-icon>{{ user.adress }} <br />
+  <mat-icon>email</mat-icon>{{ user.email }} <br />
+  <mat-icon>phone</mat-icon>{{ user.phone }} <br />
+  <button
+    mat-mini-fab
+    color="primary"
+    aria-label="Example icon button with a menu icon"
+    (click)="edit()"
+  >
+    <mat-icon>edit</mat-icon>
+  </button>
+</div>
+
+<div class="profile-details">
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Vaccination report </mat-panel-title>
+        <mat-panel-description>
+          your vaccinations
+          <mat-icon>account_circle</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>YOUR VACCINATIONS</p>
+      <div>
+        <mat-card *ngFor="let item of user.vaccinations">{{ item }}</mat-card>
+      </div>
+      <div>
+        <p>ADD VACCINATION</p>
+        <mat-form-field>
+          <mat-label>ADD VACCINATION (TODO)</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="addVaccine()">
+          <mat-icon>exposure_plus_1</mat-icon>
+        </button>
+      </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Passports & Visas </mat-panel-title>
+        <mat-panel-description>
+          your passports and visas
+          <mat-icon>account_circle</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <p>YOUR PASSPORTS & VISAS</p>
+      <div>
+        <mat-card *ngFor="let item of user.passport">{{ item }}</mat-card>
+      </div>
+      <div>
+        <p>ADD PASSPORT</p>
+        <mat-form-field>
+          <mat-label>ADD PASSPORT (TODO)</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="addPassport()">
+          <mat-icon>exposure_plus_1</mat-icon>
+        </button>
+      </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Insurances </mat-panel-title>
+        <mat-panel-description>
+          your insurances
+          <mat-icon>account_circle</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <p>YOUR INSURANCES</p>
+      <div>
+        <mat-card *ngFor="let item of user.insurance">{{ item }}</mat-card>
+      </div>
+      <div>
+        <p>ADD INSURANCE</p>
+        <mat-form-field>
+          <mat-label>ADD INSURANCE (TODO)</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="addInsurance()">
+          <mat-icon>exposure_plus_1</mat-icon>
+        </button>
+      </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Driver licenses </mat-panel-title>
+        <mat-panel-description>
+          your driver licenses
+          <mat-icon>account_circle</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <p>YOUR DRIVER LICENCES</p>
+      <div>
+        <mat-card *ngFor="let item of user.license">{{ item }}</mat-card>
+      </div>
+      <div>
+        <p>ADD LICENSE</p>
+        <mat-form-field>
+          <mat-label>ADD LICENSE (TODO)</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="addLicense()">
+          <mat-icon>exposure_plus_1</mat-icon>
+        </button>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div class="profile-testbutton">
+  <button mat-raised-button color="primary" (click)="submit()">
+    Create Checklist
+  </button>
+</div>
