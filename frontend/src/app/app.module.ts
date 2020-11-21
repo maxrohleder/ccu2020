@@ -20,6 +20,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { NewsComponent } from './news/news.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MatInputModule } from '@angular/material/input';
     ProfileComponent,
     DashboardComponent,
     NavbarComponent,
+    NewsComponent,
   ],
   imports: [
     BrowserModule,
