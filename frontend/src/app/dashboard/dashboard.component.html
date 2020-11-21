@@ -1,7 +1,27 @@
-<div></div>
 <div class="dashboard-welcome">
-  <h2>Welcome,</h2>
-  <h2>Plan your Travel</h2>
+  <section *ngIf="user.loggedIn; else elseBlock">
+    <h2>
+      <p>
+        Welcome {{ user.first }}, <br />
+        Plan your Travel!
+      </p>
+      <img
+        src="https://avatars1.githubusercontent.com/u/42830642?s=400&u=55ada5125493fefb7b50eb5a331c2f6e6b263f0b&v=4"
+        alt="profil"
+      />
+    </h2>
+  </section>
+  <ng-template #elseBlock>
+    <section>
+      <h2>
+        <p>Welcome, <br />Plan your Travel</p>
+      </h2>
+      <img
+        src="https://avatars1.githubusercontent.com/u/65280810?s=400&v=4"
+        alt="default"
+      />
+    </section>
+  </ng-template>
 </div>
 
 <div class="dashboard-transport">
@@ -58,20 +78,30 @@
 </div>
 
 <div class="dashboard-travel">
-  <p>From (mat-form-field bugged? dunno what to do)</p>
+  <p>From:</p>
   <p>
     <mat-form-field appearance="outline">
       <mat-label>Start Location</mat-label>
-      <input matInput placeholder="placeholder" required />
+      <input
+        matInput
+        placeholder="placeholder"
+        [formControl]="input.startPlace"
+        required
+      />
       <mat-icon matSuffix>location_on</mat-icon>
       <mat-hint>Where does your journey start?</mat-hint>
     </mat-form-field>
   </p>
-  <p>To</p>
+  <p>To:</p>
   <p>
     <mat-form-field appearance="outline">
       <mat-label>Destination</mat-label>
-      <input matInput placeholder="Placeholder" required />
+      <input
+        matInput
+        placeholder="Placeholder"
+        [formControl]="input.endPlace"
+        required
+      />
       <mat-icon matSuffix>location_on</mat-icon>
       <mat-hint>Where do you want to go?</mat-hint>
     </mat-form-field>
@@ -84,7 +114,12 @@
   <p>
     <mat-form-field appearance="fill">
       <mat-label>Choose a date</mat-label>
-      <input matInput [matDatepicker]="picker1" required />
+      <input
+        matInput
+        [matDatepicker]="picker1"
+        [formControl]="input.startDate"
+        required
+      />
       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
       <mat-datepicker #picker1></mat-datepicker>
       <mat-hint>Choose a starting date</mat-hint>
@@ -94,7 +129,12 @@
   <p>
     <mat-form-field appearance="fill">
       <mat-label>Choose a date</mat-label>
-      <input matInput [matDatepicker]="picker2" required />
+      <input
+        matInput
+        [matDatepicker]="picker2"
+        [formControl]="input.endDate"
+        required
+      />
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
       <mat-hint>Choose an end date</mat-hint>
@@ -103,5 +143,7 @@
 </div>
 
 <div class="dashboard-end">
-  <button mat-raised-button color="primary">Create Checklist</button>
+  <button mat-raised-button color="primary" (click)="submit()">
+    Create Checklist
+  </button>
 </div>
