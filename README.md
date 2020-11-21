@@ -25,8 +25,14 @@ To create a **new component** called xyz, run: `ng generate component xyz` or `n
 
 ## App views
 
-Login/Register Page (with a switch)
+Granularity: Land oder Stadt?
 
-- email first last mobile homecountry upon registration
-- email and password login authenticates
-  Welcome Page
+- Dashboard View: (beinhaltet Kacheln, die zu Kernfunktionalität der App führen)
+  - News (Newsfeed aller neuer Regulierungen etc)
+  - Get Informed (Seite mit Auswahl von Land --> Infos zu Numbers und Regulationen, zusätzlich Activities etc)
+  - Trips (Reiseplanung in Bezug auf Einschränkungen, Start-Zwischen-Ende)
+  
+- News
+- Get Informed
+- Trips
+
