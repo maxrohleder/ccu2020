@@ -66,6 +66,10 @@ export class ChecklistService {
       time: '72 hours',
       checked: false,
     };
+    var item2 = {
+      name: 'Make appointment for Covid-19 Test',
+      checked: false,
+    };
     var ToDo1 = {
       title: 'Valid Identification Card',
       text: 'Check that validation is at least 6 weeks',
@@ -74,6 +78,7 @@ export class ChecklistService {
     };
 
     ToDo1.check.push(item1);
+    ToDo1.check.push(item2);
     this.checklist.push(ToDo1);
     //console.log(this.checklist);
     return this.checklist;

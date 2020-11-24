@@ -176,18 +176,17 @@
           <mat-expansion-panel-header>
             <mat-panel-title> {{ item.title }} </mat-panel-title>
 
-            <div class="travel-body" *ngIf="item.allchecked; else elseBlock2">
-              <mat-icon (click)="checkAll(item)">check_box</mat-icon>
-            </div>
-
-            <ng-template #elseBlock2>
-              <mat-icon (click)="checkAll(item)"
-                >check_box_outline_blank</mat-icon
-              >
-            </ng-template>
-
             <mat-panel-description>
               {{ item.text }}
+              <div class="travel-body" *ngIf="item.allchecked; else elseBlock2">
+                <mat-icon (click)="checkAll(item)">check_box</mat-icon>
+              </div>
+
+              <ng-template #elseBlock2>
+                <mat-icon (click)="checkAll(item)"
+                  >check_box_outline_blank</mat-icon
+                >
+              </ng-template>
             </mat-panel-description>
           </mat-expansion-panel-header>
 
