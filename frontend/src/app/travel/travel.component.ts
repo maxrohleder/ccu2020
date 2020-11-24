@@ -15,17 +15,6 @@ export class TravelComponent implements OnInit {
 
   checklist = [];
 
-  checklist1 = {
-    checked1: false,
-    checked2: false,
-    checked3: false,
-  };
-
-  allchecked =
-    this.checklist1['checked1'] &&
-    this.checklist1['checked2'] &&
-    this.checklist1['checked3'];
-
   user = {
     first: this.account.first,
     last: this.account.first,
@@ -58,6 +47,7 @@ export class TravelComponent implements OnInit {
 
     console.log(this.checklist);
   }
+
   appendCheckList(): void {
     var item1 = {
       name: 'Make appointment for Covid-19 Test',
@@ -95,6 +85,7 @@ export class TravelComponent implements OnInit {
     this.checklist.push(ToDo1);
     console.log(this.checklist);
   }
+
   checkAll(item): void {
     item.allchecked = !item.allchecked;
     //console.log(item.allchecked);
@@ -108,8 +99,5 @@ export class TravelComponent implements OnInit {
 
   goToCheckList(): void {
     this.seeChecklist = !this.seeChecklist; //test
-  }
-  goToProfile(): void {
-    console.log('hello world');
   }
 }
