@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Button } from 'protractor';
 import { AccountService } from '../account.service';
+import { ChecklistService } from '../checklist.service';
 
 @Component({
   selector: 'app-travel',
@@ -9,9 +9,12 @@ import { AccountService } from '../account.service';
   styleUrls: ['./travel.component.sass'],
 })
 export class TravelComponent implements OnInit {
-  constructor(private account: AccountService) {}
+  constructor(
+    private account: AccountService,
+    private checklistService: ChecklistService
+  ) {}
 
-  seeChecklist = true;
+  seeChecklist = false;
 
   checklist = [];
 
@@ -21,6 +24,7 @@ export class TravelComponent implements OnInit {
     email: this.account.email,
     loggedIn: null, //this.account.loggedIn //TODO
   };
+
   input = {
     startPlace: new FormControl(),
     endPlace: new FormControl(),
@@ -33,7 +37,6 @@ export class TravelComponent implements OnInit {
     this.user['loggedIn'] = true; //for  test
 
     //establish first test checkbox item //TODO get this datastructure from a service
-    this.appendCheckList();
   }
 
   submit(): void {
@@ -49,41 +52,7 @@ export class TravelComponent implements OnInit {
   }
 
   appendCheckList(): void {
-    var item1 = {
-      name: 'Make appointment for Covid-19 Test',
-      time: '72 hours',
-      checked: false,
-    };
-
-    var item2 = {
-      name: 'Conduct Covid-19 Test',
-      time: '72 hours',
-      checked: false,
-    };
-    var item3 = {
-      name: 'Upload Covid-19 Test result',
-      checked: false,
-    };
-    var item4 = {
-      name: 'Receive QR-Code for entry',
-      checked: false,
-    };
-    var ToDo1 = {
-      title: 'Valid Identification Card',
-      text: 'Check that validation is at least 6 weeks',
-      allchecked: false,
-      check: [],
-    };
-
-    console.log(item1);
-
-    ToDo1.check.push(item1);
-    ToDo1.check.push(item2);
-    ToDo1.check.push(item3);
-    ToDo1.check.push(item4);
-
-    this.checklist.push(ToDo1);
-    console.log(this.checklist);
+    this.checklist = this.checklistService.appendCheckList();
   }
 
   checkAll(item): void {
@@ -94,10 +63,17 @@ export class TravelComponent implements OnInit {
       item.check[box_index].checked = !item.check[box_index].checked;
       //console.log(item.check[box_index]);
     }
-    console.log(item);
   }
 
   goToCheckList(): void {
-    this.seeChecklist = !this.seeChecklist; //test
+    //console.log(this.checklist);
+    //console.log(this.checklist);
+    if (this.seeChecklist == false) {
+      this.checklist = this.checklistService.getCheckList(this.input);
+    } else {
+      this.checklist = this.checklistService.clearCheckList();
+    }
+
+    this.seeChecklist = !this.seeChecklist; //switch to checklist view
   }
 }
