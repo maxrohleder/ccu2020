@@ -161,10 +161,14 @@
 </div>
 <ng-template #elseBlock>
   <div class="travel-checklist">
-    <h2>
-      <mat-icon (click)="goToCheckList()">arrow_back_ios</mat-icon>
-      <p>Checklist</p>
-    </h2>
+    <div class="travel-checklist-head">
+      <p (click)="goToCheckList()">
+        <mat-icon>arrow_back_ios</mat-icon> Discard Checklist
+      </p>
+      <h2>
+        <p>Checklist</p>
+      </h2>
+    </div>
 
     <div class="travel-checklist-card">
       <mat-accordion class="travel-checklist-card" multi>
