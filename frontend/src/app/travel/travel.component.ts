@@ -95,6 +95,16 @@ export class TravelComponent implements OnInit {
     this.checklist.push(ToDo1);
     console.log(this.checklist);
   }
+  checkAll(item): void {
+    item.allchecked = !item.allchecked;
+    //console.log(item.allchecked);
+
+    for (var box_index in item.check) {
+      item.check[box_index].checked = !item.check[box_index].checked;
+      //console.log(item.check[box_index]);
+    }
+    console.log(item);
+  }
 
   goToCheckList(): void {
     this.seeChecklist = !this.seeChecklist; //test

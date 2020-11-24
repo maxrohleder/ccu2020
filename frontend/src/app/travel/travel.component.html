@@ -173,30 +173,33 @@
             <mat-panel-title> {{ item.title }} </mat-panel-title>
 
             <div class="travel-body" *ngIf="item.allchecked; else elseBlock2">
-              <mat-icon (click)="goToCheckList()">done_all</mat-icon>
+              <mat-icon (click)="checkAll(item)">check_box</mat-icon>
             </div>
 
             <ng-template #elseBlock2>
-              <mat-icon (click)="goToCheckList()">clear</mat-icon>
+              <mat-icon (click)="checkAll(item)"
+                >check_box_outline_blank</mat-icon
+              >
             </ng-template>
 
             <mat-panel-description>
               {{ item.text }}
-              <mat-checkbox
-                class="example-margin"
-                labelPosition="before"
-                [(ngModel)]="item.allchecked"
-              >
-              </mat-checkbox>
             </mat-panel-description>
           </mat-expansion-panel-header>
 
-          <mat-checkbox
-            class="example-margin"
-            labelPosition="before"
-            [(ngModel)]="item.allchecked"
-            >Checklist : {{ item.title }}
-          </mat-checkbox>
+          <div class="travel-body" *ngIf="!item.allchecked; else elseBlock3">
+            <p>
+              CHECKLIST: Selcet ALL -->
+              <mat-icon (click)="checkAll(item)">check_circle</mat-icon>
+            </p>
+          </div>
+
+          <ng-template #elseBlock3>
+            <p>
+              CHECKLIST: Unselcet ALL -->
+              <mat-icon (click)="checkAll(item)">unpublished</mat-icon>
+            </p>
+          </ng-template>
 
           <div>
             <mat-card *ngFor="let box of item.check">
