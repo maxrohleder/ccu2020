@@ -19,11 +19,10 @@ export class TravelComponent implements OnInit {
   checklist = [];
 
   user = {
-    first: this.account.first,
-    last: this.account.first,
+    name: this.account.name,
     email: this.account.email,
-    loggedIn: null, //this.account.loggedIn //TODO
-    picture: null, //this.account.loggedIn //TODO
+    loggedIn: this.account.isLoggedIn,
+    picture: this.account.picture,
   };
 
   button = {
@@ -43,11 +42,6 @@ export class TravelComponent implements OnInit {
 
   ngOnInit(): void {
     //for  test
-    this.user['first'] = 'Max';
-    this.user['email'] = 'max@Roh.com';
-    this.user['loggedIn'] = this.user['email'] != null;
-    this.user['picture'] =
-      'https://avatars1.githubusercontent.com/u/42830642?s=400&u=55ada5125493fefb7b50eb5a331c2f6e6b263f0b&v=4';
   }
   buttonOnClick(id): void {
     this.button[id] = !this.button[id];
@@ -60,7 +54,7 @@ export class TravelComponent implements OnInit {
     console.log('startDate: ' + this.input['startDate'].value);
     console.log('endDate: ' + this.input['endDate'].value);
 
-    console.log('user: ' + this.user.first);
+    console.log('user: ' + this.user.name);
     this.user.loggedIn = !this.user.loggedIn; //test
 
     console.log(this.checklist);

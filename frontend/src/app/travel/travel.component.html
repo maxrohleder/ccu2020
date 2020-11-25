@@ -3,7 +3,7 @@
     <section *ngIf="user.loggedIn; else elseBlock">
       <h2>
         <p>
-          Welcome {{ user.first }}, <br />
+          Welcome {{ user.name }}, <br />
           Plan your Travel!
         </p>
         <img [src]="this.user.picture" alt="profil" />

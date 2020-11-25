@@ -11,14 +11,23 @@ import {
 })
 export class AccountService {
   constructor(private afAuth: AngularFireAuth, private router: Router) {
-    this.afAuth.authState.subscribe((d) =>
-      console.log('Subscribing to auth changes', d)
-    );
+    this.afAuth.authState.subscribe((d) => {
+      console.log('Subscribing to auth changes', d);
+      this.isLoggedIn = true;
+      this.email = d.email;
+      this.emailVerified = d.emailVerified;
+      this.name = d.displayName;
+      this.picture = d.photoURL;
+    });
   }
 
+  name = '';
   first = '';
   last = '';
   email = '';
+  emailVerified = false;
+  picture = '';
+  isLoggedIn = false;
   loginData: FirebaseUISignInSuccessWithAuthResult;
 
   logOut(): void {
