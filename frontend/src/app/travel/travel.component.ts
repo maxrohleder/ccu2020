@@ -23,6 +23,7 @@ export class TravelComponent implements OnInit {
     last: this.account.first,
     email: this.account.email,
     loggedIn: null, //this.account.loggedIn //TODO
+    picture: null, //this.account.loggedIn //TODO
   };
 
   button = {
@@ -41,10 +42,12 @@ export class TravelComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.user['first'] = 'Max'; //for  test
-    this.user['loggedIn'] = true; //for  test
-
-    //establish first test checkbox item //TODO get this datastructure from a service
+    //for  test
+    this.user['first'] = 'Max';
+    this.user['email'] = 'max@Roh.com';
+    this.user['loggedIn'] = this.user['email'] != null;
+    this.user['picture'] =
+      'https://avatars1.githubusercontent.com/u/42830642?s=400&u=55ada5125493fefb7b50eb5a331c2f6e6b263f0b&v=4';
   }
   buttonOnClick(id): void {
     this.button[id] = !this.button[id];

@@ -6,10 +6,7 @@
           Welcome {{ user.first }}, <br />
           Plan your Travel!
         </p>
-        <img
-          src="https://avatars1.githubusercontent.com/u/42830642?s=400&u=55ada5125493fefb7b50eb5a331c2f6e6b263f0b&v=4"
-          alt="profil"
-        />
+        <img [src]="this.user.picture" alt="profil" />
       </h2>
     </section>
     <ng-template #elseBlock>
