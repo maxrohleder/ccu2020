@@ -26,13 +26,23 @@
   </div>
 
   <div class="travel-transport">
+    <p>
+      Default appearance:
+      <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle value="bold">Bold</mat-button-toggle>
+        <mat-button-toggle value="italic">Italic</mat-button-toggle>
+        <mat-button-toggle value="underline">Underline</mat-button-toggle>
+      </mat-button-toggle-group>
+    </p>
+
     <p>Choose type of transport</p>
     <div class="button-row">
       <div class="flex-container">
         <div class="button-container">
           <button
+            (click)="buttonOnClick('plane')"
             mat-fab
-            color="primary"
+            [color]="this.button.plane ? 'warn' : 'primary'"
             aria-label="icon button with a send icon"
           >
             <mat-icon>send</mat-icon>
@@ -40,8 +50,9 @@
         </div>
         <div class="button-container">
           <button
+            (click)="buttonOnClick('car')"
             mat-fab
-            color="accent"
+            [color]="this.button.car ? 'warn' : 'primary'"
             aria-label="icon button with a directions_car icon"
           >
             <mat-icon>directions_car</mat-icon>
@@ -49,8 +60,9 @@
         </div>
         <div class="button-container">
           <button
+            (click)="buttonOnClick('bus')"
             mat-fab
-            color="warn"
+            [color]="this.button.bus ? 'warn' : 'primary'"
             aria-label="icon button with a directions_bus icon"
           >
             <mat-icon>directions_bus</mat-icon>
@@ -58,8 +70,9 @@
         </div>
         <div class="button-container">
           <button
+            (click)="buttonOnClick('boat')"
             mat-fab
-            color="primary"
+            [color]="this.button.boat ? 'warn' : 'primary'"
             aria-label="icon button with a directions_boat icon"
           >
             <mat-icon>directions_boat</mat-icon>
@@ -67,8 +80,9 @@
         </div>
         <div class="button-container">
           <button
+            (click)="buttonOnClick('extra')"
             mat-fab
-            color="primary"
+            [color]="this.button.extra ? 'warn' : 'primary'"
             aria-label="icon button with a exposure_plus_1 icon"
           >
             <mat-icon>exposure_plus_1</mat-icon>
@@ -151,9 +165,6 @@
 
   <div class="travel-end">
     <button mat-raised-button color="primary" (click)="submit()">Test</button>
-  </div>
-
-  <div class="travel-end">
     <button mat-raised-button color="primary" (click)="goToCheckList()">
       Create Checklist
     </button>

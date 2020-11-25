@@ -25,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatExpansionModule,
     MatCardModule,
     MatCheckboxModule,
+    MatButtonToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

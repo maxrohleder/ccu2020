@@ -25,6 +25,14 @@ export class TravelComponent implements OnInit {
     loggedIn: null, //this.account.loggedIn //TODO
   };
 
+  button = {
+    plane: false,
+    car: false,
+    bus: false,
+    boat: false,
+    extra: false,
+  };
+
   input = {
     startPlace: new FormControl(),
     endPlace: new FormControl(),
@@ -37,6 +45,10 @@ export class TravelComponent implements OnInit {
     this.user['loggedIn'] = true; //for  test
 
     //establish first test checkbox item //TODO get this datastructure from a service
+  }
+  buttonOnClick(id): void {
+    this.button[id] = !this.button[id];
+    console.log(id + ': ' + this.button[id]);
   }
 
   submit(): void {
@@ -69,11 +81,16 @@ export class TravelComponent implements OnInit {
     //console.log(this.checklist);
     //console.log(this.checklist);
     if (this.seeChecklist == false) {
-      this.checklist = this.checklistService.getCheckList(this.input);
+      var data = {
+        user: this.user,
+        button: this.button,
+        input: this.input,
+      };
+      this.checklist = this.checklistService.getCheckList(data);
     } else {
       this.checklist = this.checklistService.clearCheckList();
     }
 
-    this.seeChecklist = !this.seeChecklist; //switch to checklist view
+    this.seeChecklist = !this.seeChecklist; //switch checklist view
   }
 }
