@@ -10,7 +10,7 @@ import { FirebaseUIModule } from 'firebaseui-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { TravelComponent } from './travel/travel.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -24,13 +24,15 @@ import { NewsComponent } from './news/news.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ProfileComponent,
-    DashboardComponent,
+    TravelComponent,
     NavbarComponent,
     NewsComponent,
   ],
@@ -53,6 +55,8 @@ import { MatCardModule } from '@angular/material/card';
     ReactiveFormsModule,
     MatExpansionModule,
     MatCardModule,
+    MatCheckboxModule,
+    MatButtonToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

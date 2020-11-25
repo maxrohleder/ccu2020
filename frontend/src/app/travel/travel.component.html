@@ -1,0 +1,223 @@
+<div class="travel-body" *ngIf="!seeChecklist; else elseBlock">
+  <div class="travel-welcome">
+    <section *ngIf="user.loggedIn; else elseBlock">
+      <h2>
+        <p>
+          Welcome {{ user.name }}, <br />
+          Plan your Travel!
+        </p>
+        <img [src]="this.user.picture" alt="profil" />
+      </h2>
+    </section>
+    <ng-template #elseBlock>
+      <section>
+        <h2>
+          <p>Welcome, <br />Plan your Travel</p>
+        </h2>
+        <img
+          src="https://avatars1.githubusercontent.com/u/65280810?s=400&v=4"
+          alt="default"
+        />
+      </section>
+    </ng-template>
+  </div>
+
+  <div class="travel-transport">
+    <p>Choose type of transport</p>
+    <div class="button-row">
+      <div class="flex-container">
+        <div class="button-container">
+          <button
+            (click)="buttonOnClick('plane')"
+            mat-fab
+            [color]="this.button.plane ? 'warn' : 'primary'"
+            aria-label="icon button with a send icon"
+          >
+            <mat-icon>send</mat-icon>
+          </button>
+        </div>
+        <div class="button-container">
+          <button
+            (click)="buttonOnClick('car')"
+            mat-fab
+            [color]="this.button.car ? 'warn' : 'primary'"
+            aria-label="icon button with a directions_car icon"
+          >
+            <mat-icon>directions_car</mat-icon>
+          </button>
+        </div>
+        <div class="button-container">
+          <button
+            (click)="buttonOnClick('bus')"
+            mat-fab
+            [color]="this.button.bus ? 'warn' : 'primary'"
+            aria-label="icon button with a directions_bus icon"
+          >
+            <mat-icon>directions_bus</mat-icon>
+          </button>
+        </div>
+        <div class="button-container">
+          <button
+            (click)="buttonOnClick('boat')"
+            mat-fab
+            [color]="this.button.boat ? 'warn' : 'primary'"
+            aria-label="icon button with a directions_boat icon"
+          >
+            <mat-icon>directions_boat</mat-icon>
+          </button>
+        </div>
+        <div class="button-container">
+          <button
+            (click)="buttonOnClick('extra')"
+            mat-fab
+            [color]="this.button.extra ? 'warn' : 'primary'"
+            aria-label="icon button with a exposure_plus_1 icon"
+          >
+            <mat-icon>exposure_plus_1</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="travel-travel">
+    <p>From:</p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Start Location</mat-label>
+        <input
+          matInput
+          placeholder="placeholder"
+          [formControl]="input.startPlace"
+          required
+        />
+        <mat-icon matSuffix>location_on</mat-icon>
+        <mat-hint>Where does your journey start?</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>To:</p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Destination</mat-label>
+        <input
+          matInput
+          placeholder="Placeholder"
+          [formControl]="input.endPlace"
+          required
+        />
+        <mat-icon matSuffix>location_on</mat-icon>
+        <mat-hint>Where do you want to go?</mat-hint>
+      </mat-form-field>
+    </p>
+  </div>
+
+  <div class="travel-date">
+    <p>Choose dates</p>
+
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker1"
+          [formControl]="input.startDate"
+          required
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker1"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-hint>Choose a starting date</mat-hint>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker2"
+          [formControl]="input.endDate"
+          required
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker2"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+        <mat-hint>Choose an end date</mat-hint>
+      </mat-form-field>
+    </p>
+  </div>
+
+  <div class="travel-end">
+    <button mat-raised-button color="primary" (click)="submit()">Test</button>
+    <button mat-raised-button color="primary" (click)="goToCheckList()">
+      Create Checklist
+    </button>
+  </div>
+</div>
+<ng-template #elseBlock>
+  <div class="travel-checklist">
+    <div class="travel-checklist-head">
+      <p (click)="goToCheckList()">
+        <mat-icon>arrow_back_ios</mat-icon> Discard Checklist
+      </p>
+      <h2>
+        <p>Checklist</p>
+      </h2>
+    </div>
+
+    <div class="travel-checklist-card">
+      <mat-accordion class="travel-checklist-card" multi>
+        <mat-expansion-panel *ngFor="let item of checklist">
+          <mat-expansion-panel-header>
+            <mat-panel-title> {{ item.title }} </mat-panel-title>
+
+            <mat-panel-description>
+              {{ item.text }}
+              <div class="travel-body" *ngIf="item.allchecked; else elseBlock2">
+                <mat-icon (click)="checkAll(item)">check_box</mat-icon>
+              </div>
+
+              <ng-template #elseBlock2>
+                <mat-icon (click)="checkAll(item)"
+                  >check_box_outline_blank</mat-icon
+                >
+              </ng-template>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <div class="travel-body" *ngIf="!item.allchecked; else elseBlock3">
+            <p>
+              CHECKLIST: Selcet ALL -->
+              <mat-icon (click)="checkAll(item)">check_circle</mat-icon>
+            </p>
+          </div>
+
+          <ng-template #elseBlock3>
+            <p>
+              CHECKLIST: Unselcet ALL -->
+              <mat-icon (click)="checkAll(item)">unpublished</mat-icon>
+            </p>
+          </ng-template>
+
+          <div>
+            <mat-card *ngFor="let box of item.check">
+              <mat-checkbox class="example-margin" [(ngModel)]="box.checked">
+                {{ box.name }}
+              </mat-checkbox>
+              <button mat-raised-button color="primary" *ngIf="box.time">
+                {{ box.time }}
+              </button>
+            </mat-card>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+  <button mat-raised-button color="primary" (click)="appendCheckList()">
+    ADD CHECKLIST TODO FROM SERVICE
+  </button>
+</ng-template>
