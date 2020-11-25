@@ -92,11 +92,39 @@ export class TravelComponent implements OnInit {
         button: this.button,
         input: input_value,
       };
-      this.checklist = this.checklistService.getCheckList(data);
+
+      var pass_button = false;
+      var pass_form = true;
+      //check if at least one button toggled
+      for (var i in this.button) {
+        pass_button = pass_button || this.button[i];
+      }
+      //check if all form filled
+      for (var i in input_value) {
+        var check = input_value[i] != null;
+        //console.log(input_value[i], check);
+        pass_form = pass_form && check;
+      }
+      console.log(pass_button);
+      console.log(pass_form);
+
+      //chk all data filled
+      if (pass_button && pass_form) {
+        //if all correct -> generate checklist
+        this.checklist = this.checklistService.getCheckList(data);
+        this.seeChecklist = !this.seeChecklist; //switch to checklist view
+      } else {
+        //propmt error messages
+        if (!pass_button) {
+          alert('You need to select at least one means of transport!');
+        }
+        if (!pass_form) {
+          alert('You need to fill in the froms!');
+        }
+      }
     } else {
       this.checklist = this.checklistService.clearCheckList();
+      this.seeChecklist = !this.seeChecklist; //switch back to travel view
     }
-
-    this.seeChecklist = !this.seeChecklist; //switch checklist view
   }
 }
