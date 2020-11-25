@@ -81,10 +81,16 @@ export class TravelComponent implements OnInit {
     //console.log(this.checklist);
     //console.log(this.checklist);
     if (this.seeChecklist == false) {
+      var input_value = {
+        startPlace: this.input['startPlace'].value,
+        endPlace: this.input['endPlace'].value,
+        startDate: this.input['startDate'].value,
+        endDate: this.input['endDate'].value,
+      };
       var data = {
         user: this.user,
         button: this.button,
-        input: this.input,
+        input: input_value,
       };
       this.checklist = this.checklistService.getCheckList(data);
     } else {

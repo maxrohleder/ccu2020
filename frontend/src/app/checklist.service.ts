@@ -57,9 +57,6 @@ export class ChecklistService {
     //TODO FROM BACK-END
     //TODO SOME STUFF WITH input
     console.log(input);
-    for (var value_index in input) {
-      console.log(input[value_index].value);
-    }
 
     var item1 = {
       name: 'Make appointment for Covid-19 Test',
