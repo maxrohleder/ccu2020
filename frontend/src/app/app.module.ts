@@ -26,6 +26,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { CovidInfoComponent } from './covid-info/covid-info.component';
+import { ForumComponent } from './forum/forum.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     TravelComponent,
     NavbarComponent,
     NewsComponent,
+    CovidInfoComponent,
+    ForumComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +63,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatCardModule,
     MatCheckboxModule,
     MatButtonToggleModule,
+    ScrollingModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

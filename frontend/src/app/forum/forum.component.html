@@ -1,0 +1,79 @@
+<div class="forum-main-view" *ngIf="!goToPost; else elseBlock">
+  <div class="forum-card">
+    <mat-card *ngFor="let post of all_posts">
+      <div class="forum-card-body">
+        <div class="forum-card-question" (click)="seePost(post)">
+          {{ post.question }}
+        </div>
+        <div class="forum-card-upvotes">
+          <mat-icon (click)="vote(post, 'up')"> keyboard_arrow_up</mat-icon>
+          {{ post.upvote }}
+          <mat-icon (click)="vote(post, 'down')"> keyboard_arrow_down</mat-icon>
+        </div>
+      </div>
+      <div class="forum-card-bottom" (click)="seePost(post)">
+        <mat-icon>schedule</mat-icon>
+        {{ post.time }}
+        <mat-icon>chat_bubble_outline</mat-icon>
+        {{ post.reply.length }}
+      </div>
+    </mat-card>
+  </div>
+  <div class="forum-form">
+    <mat-form-field appearance="outline">
+      <mat-label>Ask a question ...</mat-label>
+      <input matInput placeholder="placeholder" [formControl]="newQuestion" />
+      <mat-icon (click)="createPost()" matSuffix>send</mat-icon>
+    </mat-form-field>
+  </div>
+</div>
+
+<ng-template #elseBlock>
+  <div class="forum-post-view">
+    <mat-card (click)="seePost('back')">
+      <div class="forum-card-body">
+        <div class="forum-card-question">
+          {{ seenPost.question }}
+        </div>
+        <div class="forum-card-upvotes">
+          <mat-icon (click)="vote(seenPost, 'up')"> keyboard_arrow_up</mat-icon>
+          {{ seenPost.upvote }}
+          <mat-icon (click)="vote(seenPost, 'down')">
+            keyboard_arrow_down</mat-icon
+          >
+        </div>
+      </div>
+      <div class="forum-card-bottom">
+        <mat-icon>schedule</mat-icon>
+        {{ seenPost.time }}
+        <mat-icon>chat_bubble_outline</mat-icon>
+        {{ seenPost.reply.length }}
+      </div>
+    </mat-card>
+    <div class="forum-card-reply" *ngFor="let reply of seenPost.reply">
+      <div class="forum-card-body">
+        <div class="forum-card-question">
+          {{ reply.name }}
+        </div>
+        <div class="forum-card-upvotes">
+          <mat-icon (click)="vote(reply, 'up')"> keyboard_arrow_up</mat-icon>
+          {{ reply.upvote }}
+          <mat-icon (click)="vote(reply, 'down')">
+            keyboard_arrow_down</mat-icon
+          >
+        </div>
+      </div>
+      <div class="forum-card-bottom">
+        <mat-icon>schedule</mat-icon>
+        {{ reply.time }}
+      </div>
+    </div>
+  </div>
+  <div class="forum-form">
+    <mat-form-field appearance="outline">
+      <mat-label>Write a reply ...</mat-label>
+      <input matInput placeholder="placeholder" [formControl]="newQuestion" />
+      <mat-icon (click)="createReply()" matSuffix>send</mat-icon>
+    </mat-form-field>
+  </div>
+</ng-template>

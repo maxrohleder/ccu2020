@@ -1,0 +1,119 @@
+<div class="forum-main-view" *ngIf="!seeInformation; else elseBlock">
+  <div class="info-card">
+    <mat-card>
+      <p>Welcome, Get informations about your travel destination</p>
+    </mat-card>
+  </div>
+  <div class="info-card-selection">
+    <div class="info-card-selection-country">
+      <p>Select a County</p>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> {{ selectedCountry }} </mat-panel-title>
+          <mat-panel-description>
+            Select a County you want information for
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div>
+          <cdk-virtual-scroll-viewport
+            [itemSize]="1 * 7"
+            class="example-viewport"
+          >
+            <div *ngFor="let country of countries">
+              <mat-card (click)="setCountry(country)"> {{ country }} </mat-card>
+            </div>
+          </cdk-virtual-scroll-viewport>
+        </div>
+      </mat-expansion-panel>
+    </div>
+
+    <div class="info-card-selection-city">
+      <p>Select a City</p>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> {{ selectedCity }} </mat-panel-title>
+          <mat-panel-description>
+            Select a City you want information for
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div>
+          <div>
+            <cdk-virtual-scroll-viewport
+              [itemSize]="1 * 7"
+              class="example-viewport"
+            >
+              <div *ngFor="let city of cities">
+                <mat-card (click)="setCity(city)"> {{ city }} </mat-card>
+              </div>
+            </cdk-virtual-scroll-viewport>
+          </div>
+        </div>
+
+        <div class="info-form">
+          <mat-form-field appearance="outline">
+            <mat-label>Write a city ...</mat-label>
+            <input matInput placeholder="placeholder" [formControl]="newCity" />
+            <mat-icon (click)="setCity('FORM')" matSuffix>send</mat-icon>
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+    </div>
+  </div>
+
+  <div class="profile-testbutton">
+    <button mat-raised-button color="primary" (click)="getInformation()">
+      Get information!
+    </button>
+  </div>
+</div>
+
+<ng-template #elseBlock>
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Numbers">
+      <p>last updated 12.12.2020</p>
+      <div class="cases-overview">
+        <p>Covid-19 Cases overview</p>
+        <div class="cases-overview-left">
+          {{ caseOverView.total }}
+          <p>total</p>
+        </div>
+        <div class="cases-overview-mid">
+          {{ caseOverView.cured }}
+          <p>cured</p>
+        </div>
+        <div class="cases-overview-right">
+          {{ caseOverView.deaths }}
+          <p>deaths</p>
+        </div>
+      </div>
+      <div class="new-infections">
+        <p>New infections</p>
+        <div class="cases-overview-left">
+          {{ newInfections.prevDay }}
+          <p>Previous day</p>
+        </div>
+        <div class="cases-overview-mid">
+          {{ newInfections.lastSevenDay }}
+          <p>Last 7 days</p>
+        </div>
+        <div class="cases-overview-right">
+          {{ newInfections.weekly }}
+          <p>Weekly comp.</p>
+        </div>
+      </div>
+      <iframe
+        [src]="this.src_name"
+        style="width: 100%; height: 600px; border: 0px none"
+      ></iframe>
+    </mat-tab>
+    <mat-tab label="Worldwide">
+      <iframe
+        src="https://ourworldindata.org/grapher/total-cases-covid-19?tab=map"
+        width="100%"
+        height="600px"
+      ></iframe>
+    </mat-tab>
+  </mat-tab-group>
+</ng-template>
