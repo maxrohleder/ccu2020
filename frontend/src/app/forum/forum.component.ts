@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { ForumChatService } from '../forum-chat.service';
 
 @Component({
   selector: 'app-forum',
@@ -7,7 +8,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./forum.component.sass'],
 })
 export class ForumComponent implements OnInit {
-  constructor() {}
+  constructor(private ForumChatService: ForumChatService) {}
   goToPost = false;
 
   all_posts = [];
@@ -16,51 +17,7 @@ export class ForumComponent implements OnInit {
   newQuestion = new FormControl();
 
   ngOnInit(): void {
-    var reply1 = {
-      name: 'Would like to know that too',
-      upvote: 31,
-      voted: false,
-      time: '16min',
-    };
-    var reply2 = {
-      name: 'Good Question!',
-      upvote: 5,
-      voted: false,
-      time: '6min',
-    };
-    var reply3 = {
-      name: 'I think so ?!',
-      upvote: 2,
-      voted: false,
-      time: '1min',
-    };
-
-    var post1 = {
-      question: 'Can I still go to the beach during the curfew?',
-      time: '15min',
-      upvote: 150,
-      voted: false,
-      verified: true,
-      reply: [],
-    };
-
-    var post2 = {
-      question:
-        'Can I prevent being in quarantine in Germany if I travel by transit through belgium? ',
-      time: '16min',
-      upvote: 50,
-      voted: false,
-      verified: false,
-      reply: [],
-    };
-
-    post1.reply.push(reply1);
-    post1.reply.push(reply2);
-    post1.reply.push(reply3);
-    post2.reply.push(reply1);
-    post2.reply.push(reply2);
-    this.all_posts.push(post1);
-    this.all_posts.push(post2);
+    this.all_posts = this.ForumChatService.getAllPosts();
   }
 
   seePost(post): void {
@@ -84,34 +41,49 @@ export class ForumComponent implements OnInit {
     } else {
       console.log('already voted');
     }
+
+    this.ForumChatService.updatePosts(this.all_posts);
   }
 
   createPost(): void {
     console.log('seePost');
-    var post = {
-      question: this.newQuestion.value,
-      time: '0min',
-      upvote: 0,
-      voted: false,
-      verified: false,
-      reply: [],
-    };
+    if (this.newQuestion.value != null || this.newQuestion.value != undefined) {
+      var post = {
+        question: this.newQuestion.value,
+        time: '0min',
+        upvote: 0,
+        voted: false,
+        verified: false,
+        reply: [],
+      };
 
-    this.all_posts.unshift(post);
-    //PUSH TO BACKEND ?
-    this.newQuestion.reset();
+      this.all_posts.unshift(post);
+      this.newQuestion.reset();
+
+      //PUSH TO BACKEND ?
+      this.ForumChatService.updatePosts(this.all_posts);
+    } else {
+      alert('You need to wirte someting down!');
+    }
   }
+
   createReply(): void {
     console.log('seePost');
-    var reply1 = {
-      name: this.newQuestion.value,
-      upvote: 0,
-      voted: false,
-      time: '0min',
-    };
+    if (this.newQuestion.value != null || this.newQuestion.value != undefined) {
+      var reply1 = {
+        name: this.newQuestion.value,
+        upvote: 0,
+        voted: false,
+        time: '0min',
+      };
 
-    this.seenPost.reply.push(reply1);
-    //PUSH TO BACKEND ?
-    this.newQuestion.reset();
+      this.seenPost.reply.push(reply1);
+      this.newQuestion.reset();
+
+      //PUSH TO BACKEND ?
+      this.ForumChatService.updatePosts(this.all_posts);
+    } else {
+      alert('You need to wirte someting down!');
+    }
   }
 }
