@@ -44,7 +44,7 @@
               [itemSize]="1 * 7"
               class="example-viewport"
             >
-              <div *ngFor="let city of cities">
+              <div *ngFor="let city of city_lookup[selectedCountry]">
                 <mat-card (click)="setCity(city)"> {{ city }} </mat-card>
               </div>
             </cdk-virtual-scroll-viewport>

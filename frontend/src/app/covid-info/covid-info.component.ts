@@ -35,7 +35,6 @@ export class CovidInfoComponent implements OnInit {
     'France',
     'Portugal',
     'Spain',
-    'Italy',
     'USA',
     'UK',
     'Russia',
@@ -44,8 +43,27 @@ export class CovidInfoComponent implements OnInit {
     'Finnland',
     'Australia',
   ];
+  country_lookup = {
+    Germany: 'DEU',
+    France: 'FRA',
+    Portugal: 'PRT',
+    Spain: 'ESP',
+    USA: 'USA',
+  };
 
-  cities = ['München', 'Berlin', 'Hamburg', 'Ingolstadt', 'Karlsruhe'];
+  city_lookup = {
+    Germany: ['München', 'Berlin', 'Hamburg', 'Ingolstadt', 'Karlsruhe'],
+    France: ['Paris', 'Marseille', 'Nizza', 'Bordeaux', 'Lyon'],
+    Portugal: ['Lisbon', 'Porto', 'Coinbra', 'Braga', 'Lagos'],
+    Spain: ['Madrid', 'Barcelona', 'Sevilla', 'Valencia', 'Granada'],
+    USA: [
+      'Washington D.C.',
+      'New York',
+      'Chicago',
+      'Los Angeles',
+      'San Francisico',
+    ],
+  };
 
   ngOnInit(): void {
     console.log(this.countries);
@@ -53,11 +71,12 @@ export class CovidInfoComponent implements OnInit {
   }
   setCountry(country): void {
     this.selectedCountry = country;
+    this.selectedCity = this.city_lookup[country][0];
     console.log('selectedCountry: ', this.selectedCountry);
   }
   setCity(city): void {
     if (city == 'FORM') {
-      this.cities.unshift(this.newCity.value);
+      this.city_lookup[this.selectedCountry].unshift(this.newCity.value);
       this.selectedCity = this.newCity.value;
       console.log('selectedCity: ', this.selectedCity);
     } else {
@@ -72,9 +91,14 @@ export class CovidInfoComponent implements OnInit {
       console.log(
         'Country: ' + this.selectedCountry + ' -> ' + this.selectedCity
       );
+      var lookup =
+        this.country_lookup[this.selectedCountry] != undefined
+          ? this.country_lookup[this.selectedCountry]
+          : 'USA';
+
       this.src_name = this._sanitizer.bypassSecurityTrustResourceUrl(
         'https://ourworldindata.org/grapher/total-deaths-covid-19?country=' +
-          'USA' //TODO SWITCH TO SELCTED COUNTRY
+          lookup //TODO SWITCH TO SELCTED COUNTRY
       );
       this.seeInformation = true;
     }
