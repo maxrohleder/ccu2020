@@ -44,7 +44,7 @@
               [itemSize]="1 * 7"
               class="example-viewport"
             >
-              <div *ngFor="let city of city_lookup[selectedCountry]">
+              <div *ngFor="let city of country_data[selectedCountry]['cities']">
                 <mat-card (click)="setCity(city)"> {{ city }} </mat-card>
               </div>
             </cdk-virtual-scroll-viewport>
@@ -72,34 +72,34 @@
 <ng-template #elseBlock>
   <mat-tab-group mat-align-tabs="center">
     <mat-tab label="Numbers">
-      <p>last updated 12.12.2020</p>
+      <p>last updated {{ last_updated }}</p>
       <div class="cases-overview">
         <p>Covid-19 Cases overview</p>
         <div class="cases-overview-left">
-          {{ caseOverView.total }}
+          {{ country_data[selectedCountry]["caseOverView"]["total"] }}
           <p>total</p>
         </div>
         <div class="cases-overview-mid">
-          {{ caseOverView.cured }}
+          {{ country_data[selectedCountry]["caseOverView"]["cured"] }}
           <p>cured</p>
         </div>
         <div class="cases-overview-right">
-          {{ caseOverView.deaths }}
+          {{ country_data[selectedCountry]["caseOverView"]["deaths"] }}
           <p>deaths</p>
         </div>
       </div>
       <div class="new-infections">
         <p>New infections</p>
         <div class="cases-overview-left">
-          {{ newInfections.prevDay }}
+          {{ country_data[selectedCountry]["newInfections"]["prevDay"] }}
           <p>Previous day</p>
         </div>
         <div class="cases-overview-mid">
-          {{ newInfections.lastSevenDay }}
+          {{ country_data[selectedCountry]["newInfections"]["lastSevenDay"] }}
           <p>Last 7 days</p>
         </div>
         <div class="cases-overview-right">
-          {{ newInfections.weekly }}
+          {{ country_data[selectedCountry]["newInfections"]["weekly"] }}s
           <p>Weekly comp.</p>
         </div>
       </div>
@@ -114,6 +114,75 @@
         width="100%"
         height="600px"
       ></iframe>
+    </mat-tab>
+    <mat-tab label="Restrictions">
+      <mat-card>
+        <p>last updated {{ last_updated }}</p>
+        <p>Offical website of Government of {{ selectedCountry }}:</p>
+        <a [href]="country_data[selectedCountry]['governmentLink']">
+          {{ country_data[selectedCountry]["governmentLink"] }}
+        </a>
+        <p>Offical website about Covid-19 of {{ selectedCountry }}:</p>
+        <a [href]="country_data[selectedCountry]['coronaLink']">
+          {{ country_data[selectedCountry]["coronaLink"] }}
+        </a>
+      </mat-card>
+
+      <div class="info-expansion-panel">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title> General restrictions </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div
+            *ngFor="
+              let news of country_data[selectedCountry]['generalRestrictions']
+            "
+          >
+            <h2>{{ news.head }}</h2>
+            <p>{{ news.text }}</p>
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title> Entry restrictions </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div
+            *ngFor="
+              let news of country_data[selectedCountry]['entryRestrictions']
+            "
+          >
+            <h2>{{ news.head }}</h2>
+            <p>{{ news.text }}</p>
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title> Transit restrictions </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div
+            *ngFor="
+              let news of country_data[selectedCountry]['transitRestrictions']
+            "
+          >
+            <h2>{{ news.head }}</h2>
+            <p>{{ news.text }}</p>
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title> Covid-19 Application </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div *ngFor="let news of country_data[selectedCountry]['covidApp']">
+            <h2>{{ news.head }}</h2>
+            <p>{{ news.text }}</p>
+          </div>
+        </mat-expansion-panel>
+      </div>
     </mat-tab>
   </mat-tab-group>
 </ng-template>
