@@ -1,1 +1,8 @@
-<p>notification works!</p>
+<mat-card *ngFor="let notification of notification_list">
+  <mat-icon>{{ notification.icon }}</mat-icon>
+  <div class="notification-text">
+    <h2>{{ notification.head }}</h2>
+    <p>{{ notification.text }}</p>
+  </div>
+  <p>{{ notification.time }}</p>
+</mat-card>
