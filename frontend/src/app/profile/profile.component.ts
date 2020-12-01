@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../account.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -21,6 +22,8 @@ export class ProfileComponent implements OnInit {
     insurance: [],
     license: [],
   };
+
+  newEntry = new FormControl();
 
   ngOnInit(): void {
     //for test
@@ -56,20 +59,28 @@ export class ProfileComponent implements OnInit {
   }
 
   addVaccine(): void {
-    this.user['vaccinations'].push('Hae­mo­phi­lus In­flu­enzae-Typ-B');
-    console.log('vaccination added !');
+    this.user['vaccinations'].push(this.newEntry.value);
+    console.log('vaccination added !' + this.newEntry.value);
+    this.newEntry.reset();
+    //TODO PUSH CHANGES TO BACKEND
   }
   addPassport(): void {
-    this.user['passport'].push('USA');
+    this.user['passport'].push(this.newEntry.value);
     console.log('passport added !');
+    this.newEntry.reset();
+    //TODO PUSH CHANGES TO BACKEND
   }
   addInsurance(): void {
-    this.user['insurance'].push('Haaraufall Versicherung');
+    this.user['insurance'].push(this.newEntry.value);
     console.log('insurance added !');
+    this.newEntry.reset();
+    //TODO PUSH CHANGES TO BACKEND
   }
   addLicense(): void {
-    this.user['license'].push('License-Typ-C');
+    this.user['license'].push(this.newEntry.value);
     console.log('license added !');
+    this.newEntry.reset();
+    //TODO PUSH CHANGES TO BACKEND
   }
 
   //edit profile func
