@@ -24,4 +24,10 @@
   </mat-menu>
 
   <span>Covid Travel Buddy</span>
+
+  <div class="navbar-right">
+    <mat-icon (click)="goToNotifications()">notifications_none</mat-icon>
+
+    <img [src]="picture_url" (click)="goToProfile()" />
+  </div>
 </mat-toolbar>

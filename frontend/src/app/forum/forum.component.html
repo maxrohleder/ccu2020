@@ -16,6 +16,7 @@
         {{ post.time }}
         <mat-icon>chat_bubble_outline</mat-icon>
         {{ post.reply.length }}
+        <mat-icon *ngIf="post.verified">check_circle_outline</mat-icon>
       </div>
     </mat-card>
   </div>

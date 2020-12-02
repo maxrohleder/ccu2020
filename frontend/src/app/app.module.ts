@@ -30,6 +30,7 @@ import { CovidInfoComponent } from './covid-info/covid-info.component';
 import { ForumComponent } from './forum/forum.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatTabsModule } from '@angular/material/tabs';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     NewsComponent,
     CovidInfoComponent,
     ForumComponent,
+    NotificationComponent,
   ],
   imports: [
     BrowserModule,
