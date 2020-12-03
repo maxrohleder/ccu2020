@@ -56,6 +56,7 @@ export class ProfileComponent implements OnInit {
   }
 
   addVaccine(): void {
+<<<<<<< Updated upstream
     this.user['vaccinations'].push('Hae­mo­phi­lus In­flu­enzae-Typ-B');
     console.log('vaccination added !');
   }
@@ -70,6 +71,38 @@ export class ProfileComponent implements OnInit {
   addLicense(): void {
     this.user['license'].push('License-Typ-C');
     console.log('license added !');
+=======
+    if (this.newEntry.value != null || this.newEntry.value != undefined) {
+      this.user['vaccinations'].push(this.newEntry.value);
+      console.log('vaccination added !' + this.newEntry.value);
+      this.newEntry.reset();
+      //TODO PUSH CHANGES TO BACKEND
+    }
+  }
+  addPassport(): void {
+    if (this.newEntry.value != null || this.newEntry.value != undefined) {
+      this.user['passport'].push(this.newEntry.value);
+      console.log('passport added !');
+      this.newEntry.reset();
+      //TODO PUSH CHANGES TO BACKEND
+    }
+  }
+  addInsurance(): void {
+    if (this.newEntry.value != null || this.newEntry.value != undefined) {
+      this.user['insurance'].push(this.newEntry.value);
+      console.log('insurance added !');
+      this.newEntry.reset();
+      //TODO PUSH CHANGES TO BACKEND
+    }
+  }
+  addLicense(): void {
+    if (this.newEntry.value != null || this.newEntry.value != undefined) {
+      this.user['license'].push(this.newEntry.value);
+      console.log('license added !');
+      this.newEntry.reset();
+      //TODO PUSH CHANGES TO BACKEND
+    }
+>>>>>>> Stashed changes
   }
 
   //edit profile func
