@@ -31,6 +31,7 @@ import { ForumComponent } from './forum/forum.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NotificationComponent } from './notification/notification.component';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { NotificationComponent } from './notification/notification.component';
     MatButtonToggleModule,
     ScrollingModule,
     MatTabsModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

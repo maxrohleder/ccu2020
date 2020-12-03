@@ -1,160 +1,154 @@
 <div class="travel-body" *ngIf="!seeChecklist; else elseBlock">
-  <div class="travel-welcome">
-    <section *ngIf="user.loggedIn; else elseBlock">
+  <div class="travel-head-wrapper" *ngIf="user.loggedIn; else elseBlock">
+    <div class="travel-head">
       <h2>
         <p>
           Welcome {{ user.name }}, <br />
           Plan your Travel!
         </p>
-        <img [src]="user.picture" alt="profil" />
       </h2>
-    </section>
-    <ng-template #elseBlock>
-      <section>
+      <img [src]="user.picture" alt="profil" />
+    </div>
+    <div class="travel-head-caption">Choose type of transport</div>
+  </div>
+  <ng-template #elseBlock>
+    <div class="travel-head-wrapper">
+      <div class="travel-head">
         <h2>
-          <p>Welcome, <br />Plan your Travel</p>
+          <p>
+            Welcome {{ user.name }}, <br />
+            Plan your Travel!
+          </p>
         </h2>
         <img
           src="https://avatars1.githubusercontent.com/u/65280810?s=400&v=4"
           alt="default"
         />
-      </section>
-    </ng-template>
-  </div>
+      </div>
+      <div class="travel-head-caption">Choose type of transport</div>
+    </div>
+  </ng-template>
 
-  <div class="travel-transport">
-    <p>Choose type of transport</p>
+  <div class="travel-main-body">
     <div class="button-row">
-      <div class="flex-container">
-        <div class="button-container">
-          <button
-            (click)="buttonOnClick('plane')"
-            mat-fab
-            [color]="this.button.plane ? 'warn' : 'primary'"
-            aria-label="icon button with a send icon"
-          >
-            <mat-icon>send</mat-icon>
-          </button>
-        </div>
-        <div class="button-container">
-          <button
-            (click)="buttonOnClick('car')"
-            mat-fab
-            [color]="this.button.car ? 'warn' : 'primary'"
-            aria-label="icon button with a directions_car icon"
-          >
-            <mat-icon>directions_car</mat-icon>
-          </button>
-        </div>
-        <div class="button-container">
-          <button
-            (click)="buttonOnClick('bus')"
-            mat-fab
-            [color]="this.button.bus ? 'warn' : 'primary'"
-            aria-label="icon button with a directions_bus icon"
-          >
-            <mat-icon>directions_bus</mat-icon>
-          </button>
-        </div>
-        <div class="button-container">
-          <button
-            (click)="buttonOnClick('boat')"
-            mat-fab
-            [color]="this.button.boat ? 'warn' : 'primary'"
-            aria-label="icon button with a directions_boat icon"
-          >
-            <mat-icon>directions_boat</mat-icon>
-          </button>
-        </div>
-        <div class="button-container">
-          <button
-            (click)="buttonOnClick('extra')"
-            mat-fab
-            [color]="this.button.extra ? 'warn' : 'primary'"
-            aria-label="icon button with a exposure_plus_1 icon"
-          >
-            <mat-icon>exposure_plus_1</mat-icon>
-          </button>
-        </div>
+      <button
+        (click)="buttonOnClick('plane')"
+        mat-fab
+        [color]="this.button.plane ? 'warn' : 'primary'"
+        aria-label="icon button with a send icon"
+      >
+        <mat-icon>send</mat-icon>
+      </button>
+      <button
+        (click)="buttonOnClick('car')"
+        mat-fab
+        [color]="this.button.car ? 'warn' : 'primary'"
+        aria-label="icon button with a directions_car icon"
+      >
+        <mat-icon>directions_car</mat-icon>
+      </button>
+      <button
+        (click)="buttonOnClick('bus')"
+        mat-fab
+        [color]="this.button.bus ? 'warn' : 'primary'"
+        aria-label="icon button with a directions_bus icon"
+      >
+        <mat-icon>directions_bus</mat-icon>
+      </button>
+      <button
+        (click)="buttonOnClick('boat')"
+        mat-fab
+        [color]="this.button.boat ? 'warn' : 'primary'"
+        aria-label="icon button with a directions_boat icon"
+      >
+        <mat-icon>directions_boat</mat-icon>
+      </button>
+      <button
+        (click)="buttonOnClick('extra')"
+        mat-fab
+        [color]="this.button.extra ? 'warn' : 'primary'"
+        aria-label="icon button with a exposure_plus_1 icon"
+      >
+        <mat-icon>exposure_plus_1</mat-icon>
+      </button>
+    </div>
+
+    <div class="travel-travel">
+      <mat-divider></mat-divider>
+
+      <div class="travel-travel-item">
+        <p>From:</p>
+        <mat-form-field appearance="outline">
+          <mat-label>Start Location</mat-label>
+          <input
+            matInput
+            placeholder="placeholder"
+            [formControl]="input.startPlace"
+            required
+          />
+          <mat-icon matSuffix>location_on</mat-icon>
+          <mat-hint>Where does your journey start?</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="travel-travel-item">
+        <p>To:</p>
+        <mat-form-field appearance="outline">
+          <mat-label>Destination</mat-label>
+          <input
+            matInput
+            placeholder="Placeholder"
+            [formControl]="input.endPlace"
+            required
+          />
+          <mat-icon matSuffix>location_on</mat-icon>
+          <mat-hint>Where do you want to go?</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="travel-travel-item">
+        <p>Choose dates</p>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Choose a date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker1"
+            [formControl]="input.startDate"
+            required
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker1"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+          <mat-hint>Choose a starting date</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Choose a date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker2"
+            [formControl]="input.endDate"
+            required
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker2"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+          <mat-hint>Choose an end date</mat-hint>
+        </mat-form-field>
       </div>
     </div>
-  </div>
 
-  <div class="travel-travel">
-    <p>From:</p>
-    <p>
-      <mat-form-field appearance="outline">
-        <mat-label>Start Location</mat-label>
-        <input
-          matInput
-          placeholder="placeholder"
-          [formControl]="input.startPlace"
-          required
-        />
-        <mat-icon matSuffix>location_on</mat-icon>
-        <mat-hint>Where does your journey start?</mat-hint>
-      </mat-form-field>
-    </p>
-    <p>To:</p>
-    <p>
-      <mat-form-field appearance="outline">
-        <mat-label>Destination</mat-label>
-        <input
-          matInput
-          placeholder="Placeholder"
-          [formControl]="input.endPlace"
-          required
-        />
-        <mat-icon matSuffix>location_on</mat-icon>
-        <mat-hint>Where do you want to go?</mat-hint>
-      </mat-form-field>
-    </p>
-  </div>
-
-  <div class="travel-date">
-    <p>Choose dates</p>
-
-    <p>
-      <mat-form-field appearance="fill">
-        <mat-label>Choose a date</mat-label>
-        <input
-          matInput
-          [matDatepicker]="picker1"
-          [formControl]="input.startDate"
-          required
-        />
-        <mat-datepicker-toggle
-          matSuffix
-          [for]="picker1"
-        ></mat-datepicker-toggle>
-        <mat-datepicker #picker1></mat-datepicker>
-        <mat-hint>Choose a starting date</mat-hint>
-      </mat-form-field>
-    </p>
-
-    <p>
-      <mat-form-field appearance="fill">
-        <mat-label>Choose a date</mat-label>
-        <input
-          matInput
-          [matDatepicker]="picker2"
-          [formControl]="input.endDate"
-          required
-        />
-        <mat-datepicker-toggle
-          matSuffix
-          [for]="picker2"
-        ></mat-datepicker-toggle>
-        <mat-datepicker #picker2></mat-datepicker>
-        <mat-hint>Choose an end date</mat-hint>
-      </mat-form-field>
-    </p>
-  </div>
-
-  <div class="travel-end">
-    <button mat-raised-button color="primary" (click)="goToCheckList()">
-      Create Checklist
-    </button>
+    <div class="travel-end">
+      <button mat-raised-button color="primary" (click)="goToCheckList()">
+        Create Checklist
+      </button>
+    </div>
   </div>
 </div>
 <ng-template #elseBlock>
