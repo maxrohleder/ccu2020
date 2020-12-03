@@ -60,7 +60,7 @@ export class ChecklistService {
 
     var item1 = {
       name: 'Make appointment for Covid-19 Test',
-      time: '72 hours',
+      time: '72h',
       checked: false,
     };
     var item2 = {
