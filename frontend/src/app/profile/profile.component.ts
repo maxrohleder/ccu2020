@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../account.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -21,6 +22,8 @@ export class ProfileComponent implements OnInit {
     insurance: [],
     license: [],
   };
+
+  newEntry = new FormControl();
 
   ngOnInit(): void {
     //for test
@@ -56,22 +59,6 @@ export class ProfileComponent implements OnInit {
   }
 
   addVaccine(): void {
-<<<<<<< Updated upstream
-    this.user['vaccinations'].push('Hae­mo­phi­lus In­flu­enzae-Typ-B');
-    console.log('vaccination added !');
-  }
-  addPassport(): void {
-    this.user['passport'].push('USA');
-    console.log('passport added !');
-  }
-  addInsurance(): void {
-    this.user['insurance'].push('Haaraufall Versicherung');
-    console.log('insurance added !');
-  }
-  addLicense(): void {
-    this.user['license'].push('License-Typ-C');
-    console.log('license added !');
-=======
     if (this.newEntry.value != null || this.newEntry.value != undefined) {
       this.user['vaccinations'].push(this.newEntry.value);
       console.log('vaccination added !' + this.newEntry.value);
@@ -102,7 +89,6 @@ export class ProfileComponent implements OnInit {
       this.newEntry.reset();
       //TODO PUSH CHANGES TO BACKEND
     }
->>>>>>> Stashed changes
   }
 
   //edit profile func

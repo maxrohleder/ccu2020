@@ -6,6 +6,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { NewsComponent } from './news/news.component';
 import { ForumComponent } from './forum/forum.component';
 import { CovidInfoComponent } from './covid-info/covid-info.component';
+import { NotificationComponent } from './notification/notification.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'news', component: NewsComponent },
   { path: 'forum', component: ForumComponent },
   { path: 'info', component: CovidInfoComponent },
+  { path: 'notification', component: NotificationComponent },
 ];
 
 @NgModule({

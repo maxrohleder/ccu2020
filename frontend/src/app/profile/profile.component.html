@@ -52,10 +52,9 @@
         <mat-card *ngFor="let item of user.vaccinations">{{ item }}</mat-card>
       </div>
       <div>
-        <p>ADD VACCINATION</p>
         <mat-form-field>
           <mat-label>ADD VACCINATION (TODO)</mat-label>
-          <input matInput />
+          <input matInput placeholder="placeholder" [formControl]="newEntry" />
         </mat-form-field>
         <button mat-raised-button color="primary" (click)="addVaccine()">
           <mat-icon>exposure_plus_1</mat-icon>
@@ -77,10 +76,9 @@
         <mat-card *ngFor="let item of user.passport">{{ item }}</mat-card>
       </div>
       <div>
-        <p>ADD PASSPORT</p>
         <mat-form-field>
           <mat-label>ADD PASSPORT (TODO)</mat-label>
-          <input matInput />
+          <input matInput placeholder="placeholder" [formControl]="newEntry" />
         </mat-form-field>
         <button mat-raised-button color="primary" (click)="addPassport()">
           <mat-icon>exposure_plus_1</mat-icon>
@@ -102,10 +100,9 @@
         <mat-card *ngFor="let item of user.insurance">{{ item }}</mat-card>
       </div>
       <div>
-        <p>ADD INSURANCE</p>
         <mat-form-field>
           <mat-label>ADD INSURANCE (TODO)</mat-label>
-          <input matInput />
+          <input matInput placeholder="placeholder" [formControl]="newEntry" />
         </mat-form-field>
         <button mat-raised-button color="primary" (click)="addInsurance()">
           <mat-icon>exposure_plus_1</mat-icon>
@@ -127,10 +124,9 @@
         <mat-card *ngFor="let item of user.license">{{ item }}</mat-card>
       </div>
       <div>
-        <p>ADD LICENSE</p>
         <mat-form-field>
           <mat-label>ADD LICENSE (TODO)</mat-label>
-          <input matInput />
+          <input matInput placeholder="placeholder" [formControl]="newEntry" />
         </mat-form-field>
         <button mat-raised-button color="primary" (click)="addLicense()">
           <mat-icon>exposure_plus_1</mat-icon>
@@ -138,10 +134,4 @@
       </div>
     </mat-expansion-panel>
   </mat-accordion>
-</div>
-
-<div class="profile-testbutton">
-  <button mat-raised-button color="primary" (click)="submit()">
-    Create Checklist
-  </button>
 </div>
