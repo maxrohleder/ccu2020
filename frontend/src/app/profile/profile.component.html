@@ -43,118 +43,107 @@
     </button>
   </div>
 
-  <div class="profile-details">
-    <mat-accordion class="example-headers-align" multi>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title> Vaccination report </mat-panel-title>
-          <mat-panel-description>
-            your vaccinations
-            <mat-icon>healing</mat-icon>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <p>YOUR VACCINATIONS</p>
-        <div>
-          <mat-card *ngFor="let item of user.vaccinations">{{ item }}</mat-card>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <div class="mat-panel-title">
+        <mat-icon>healing</mat-icon>
+        <div class="mat-panel-title-description">
+          Vaccination report
+          <div class="side-description">your vaccinations</div>
         </div>
-        <div>
-          <mat-form-field>
-            <mat-label>ADD VACCINATION (TODO)</mat-label>
-            <input
-              matInput
-              placeholder="placeholder"
-              [formControl]="newEntry"
-            />
-          </mat-form-field>
-          <button mat-raised-button color="primary" (click)="addVaccine()">
-            <mat-icon>exposure_plus_1</mat-icon>
-          </button>
-        </div>
-      </mat-expansion-panel>
+      </div>
+    </mat-expansion-panel-header>
 
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title> Passports & Visas </mat-panel-title>
-          <mat-panel-description>
-            your passports and visas
-            <mat-icon>preview</mat-icon>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
+    <div class="expansion-card-description">YOUR VACCINATIONS</div>
+    <div>
+      <mat-card *ngFor="let item of user.vaccinations">{{ item }}</mat-card>
+    </div>
+    <div class="expansion-card-bottom">
+      <mat-form-field>
+        <mat-label>...add vaccination</mat-label>
+        <input matInput placeholder="placeholder" [formControl]="newEntry" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="addVaccine()">
+        <mat-icon>exposure_plus_1</mat-icon>
+      </button>
+    </div>
+  </mat-expansion-panel>
 
-        <p>YOUR PASSPORTS & VISAS</p>
-        <div>
-          <mat-card *ngFor="let item of user.passport">{{ item }}</mat-card>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <div class="mat-panel-title">
+        <mat-icon>preview</mat-icon>
+        <div class="mat-panel-title-description">
+          Passports & Visas
+          <div class="side-description">your passports and visas</div>
         </div>
-        <div>
-          <mat-form-field>
-            <mat-label>ADD PASSPORT (TODO)</mat-label>
-            <input
-              matInput
-              placeholder="placeholder"
-              [formControl]="newEntry"
-            />
-          </mat-form-field>
-          <button mat-raised-button color="primary" (click)="addPassport()">
-            <mat-icon>exposure_plus_1</mat-icon>
-          </button>
-        </div>
-      </mat-expansion-panel>
+      </div>
+    </mat-expansion-panel-header>
 
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title> Insurances </mat-panel-title>
-          <mat-panel-description>
-            your insurances
-            <mat-icon>account_balance</mat-icon>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
+    <div class="expansion-card-description">YOUR PASSPORTS & VISAS</div>
+    <div>
+      <mat-card *ngFor="let item of user.passport">{{ item }}</mat-card>
+    </div>
+    <div class="expansion-card-bottom">
+      <mat-form-field>
+        <mat-label>...add passport or visa</mat-label>
+        <input matInput placeholder="placeholder" [formControl]="newEntry" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="addPassport()">
+        <mat-icon>exposure_plus_1</mat-icon>
+      </button>
+    </div>
+  </mat-expansion-panel>
 
-        <p>YOUR INSURANCES</p>
-        <div>
-          <mat-card *ngFor="let item of user.insurance">{{ item }}</mat-card>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <div class="mat-panel-title">
+        <mat-icon>account_balance</mat-icon>
+        <div class="mat-panel-title-description">
+          Insurances
+          <div class="side-description">your insurances</div>
         </div>
-        <div>
-          <mat-form-field>
-            <mat-label>ADD INSURANCE (TODO)</mat-label>
-            <input
-              matInput
-              placeholder="placeholder"
-              [formControl]="newEntry"
-            />
-          </mat-form-field>
-          <button mat-raised-button color="primary" (click)="addInsurance()">
-            <mat-icon>exposure_plus_1</mat-icon>
-          </button>
-        </div>
-      </mat-expansion-panel>
+      </div>
+    </mat-expansion-panel-header>
 
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title> Driver licenses </mat-panel-title>
-          <mat-panel-description>
-            your driver licenses
-            <mat-icon>directions_car</mat-icon>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
+    <div class="expansion-card-description">YOUR INSURANCES</div>
+    <div>
+      <mat-card *ngFor="let item of user.insurance">{{ item }}</mat-card>
+    </div>
+    <div class="expansion-card-bottom">
+      <mat-form-field>
+        <mat-label>...add insurance</mat-label>
+        <input matInput placeholder="placeholder" [formControl]="newEntry" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="addInsurance()">
+        <mat-icon>exposure_plus_1</mat-icon>
+      </button>
+    </div>
+  </mat-expansion-panel>
 
-        <p>YOUR DRIVER LICENCES</p>
-        <div>
-          <mat-card *ngFor="let item of user.license">{{ item }}</mat-card>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <div class="mat-panel-title">
+        <mat-icon>directions_car</mat-icon>
+        <div class="mat-panel-title-description">
+          Driver licenses
+          <div class="side-description">your driver licenses</div>
         </div>
-        <div>
-          <mat-form-field>
-            <mat-label>ADD LICENSE (TODO)</mat-label>
-            <input
-              matInput
-              placeholder="placeholder"
-              [formControl]="newEntry"
-            />
-          </mat-form-field>
-          <button mat-raised-button color="primary" (click)="addLicense()">
-            <mat-icon>exposure_plus_1</mat-icon>
-          </button>
-        </div>
-      </mat-expansion-panel>
-    </mat-accordion>
-  </div>
+      </div>
+    </mat-expansion-panel-header>
+
+    <div class="expansion-card-description">YOUR DRIVER LICENCES</div>
+    <div>
+      <mat-card *ngFor="let item of user.license">{{ item }}</mat-card>
+    </div>
+    <div class="expansion-card-bottom">
+      <mat-form-field>
+        <mat-label>...add license</mat-label>
+        <input matInput placeholder="placeholder" [formControl]="newEntry" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="addLicense()">
+        <mat-icon (click)="addLicense()">exposure_plus_1</mat-icon>
+      </button>
+    </div>
+  </mat-expansion-panel>
 </div>

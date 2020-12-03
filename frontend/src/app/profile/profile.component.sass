@@ -40,7 +40,7 @@
     padding: 2% 0% 0% 5%
     display: flex
     flex-direction: row
-    justify-content : felx-start
+    justify-content : flex-start
 
     font-family: Roboto
     font-style: normal
@@ -53,21 +53,46 @@
 
   
 .profile-details button
-    margin: 2% 0% 2% 80%
+    margin: 0% 0% 5% 80%
 
-  
+.mat-panel-title
+    width: 100%
+    display: flex
+    flex-direction: row
+    justify-content : flex-start
+    align-items : center
+
+.mat-panel-title mat-icon
+    padding: 0% 20% 0% 0% 
+
+.mat-panel-title-description
+    width: 100%
+    color: gray
+
+.side-description
+    font-size: 12px
+
+.expansion-card-description
+    font-family: Roboto
+    font-style: normal
+    font-weight: 999
+    font-size: 12px
+    line-height: 14px
+    padding: 2% 0% 5% 0% 
+
+.expansion-card-bottom
+    display: flex
+    flex-direction: row
+    justify-content : flex-start
+    align-items : center
+
+    padding: 5% 0% 0% 0% 
+
+.expansion-card-bottom button
+    margin-left: 5%
+
 mat-form-field + .mat-form-field 
   margin-left: 8px
 
 example-action-buttons 
   padding-bottom: 20px
-
-
-example-headers-align .mat-expansion-panel-header-title,
-example-headers-align .mat-expansion-panel-header-description 
-  flex-basis: 0
-
-
-example-headers-align .mat-expansion-panel-header-description 
-  justify-content: space-between
-  align-items: center
