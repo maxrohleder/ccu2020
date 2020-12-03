@@ -35,6 +35,7 @@ export class ForumComponent implements OnInit {
     console.log(post, v);
     if (!post.voted) {
       post.upvote = v == 'up' ? post.upvote + 1 : post.upvote - 1;
+      v == 'up' ? (post.voted_up = true) : (post.voted_down = true);
       post.voted = true;
       console.log('voted' + v);
       //PUSH TO BACKEND ?
@@ -53,6 +54,8 @@ export class ForumComponent implements OnInit {
         time: '0min',
         upvote: 0,
         voted: false,
+        voted_up: false,
+        voted_down: false,
         verified: false,
         reply: [],
       };
@@ -74,6 +77,8 @@ export class ForumComponent implements OnInit {
         name: this.newQuestion.value,
         upvote: 0,
         voted: false,
+        voted_up: false,
+        voted_down: false,
         time: '0min',
       };
 

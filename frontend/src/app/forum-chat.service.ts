@@ -21,18 +21,24 @@ export class ForumChatService {
       name: 'Would like to know that too',
       upvote: 31,
       voted: false,
+      voted_up: false,
+      voted_down: false,
       time: '16min',
     };
     var reply2 = {
       name: 'Good Question!',
       upvote: 5,
       voted: false,
+      voted_up: false,
+      voted_down: false,
       time: '6min',
     };
     var reply3 = {
       name: 'I think so ?!',
       upvote: 2,
       voted: false,
+      voted_up: false,
+      voted_down: false,
       time: '1min',
     };
 
@@ -41,6 +47,8 @@ export class ForumChatService {
       time: '15min',
       upvote: 150,
       voted: false,
+      voted_up: false,
+      voted_down: false,
       verified: true,
       reply: [],
     };
@@ -51,6 +59,8 @@ export class ForumChatService {
       time: '16min',
       upvote: 50,
       voted: false,
+      voted_up: false,
+      voted_down: false,
       verified: false,
       reply: [],
     };

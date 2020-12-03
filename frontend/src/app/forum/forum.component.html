@@ -1,22 +1,39 @@
 <div class="forum-main-view" *ngIf="!goToPost; else elseBlock">
   <div class="forum-card">
     <mat-card *ngFor="let post of all_posts">
-      <div class="forum-card-body">
-        <div class="forum-card-question" (click)="seePost(post)">
+      <div class="forum-card-body" (click)="seePost(post)">
+        <div class="forum-card-question">
           {{ post.question }}
         </div>
-        <div class="forum-card-upvotes">
-          <mat-icon (click)="vote(post, 'up')"> keyboard_arrow_up</mat-icon>
-          {{ post.upvote }}
-          <mat-icon (click)="vote(post, 'down')"> keyboard_arrow_down</mat-icon>
+        <div class="forum-card-bottom">
+          <div class="forum-card-bottom-div">
+            <mat-icon>schedule</mat-icon>
+            {{ post.time }}
+          </div>
+          <div class="forum-card-bottom-div">
+            <mat-icon>chat_bubble_outline</mat-icon>
+            {{ post.reply.length }}
+          </div>
+          <div *ngIf="post.verified" class="forum-card-bottom-div">
+            <mat-icon *ngIf="post.verified">check_circle_outline</mat-icon>
+            verified
+          </div>
         </div>
       </div>
-      <div class="forum-card-bottom" (click)="seePost(post)">
-        <mat-icon>schedule</mat-icon>
-        {{ post.time }}
-        <mat-icon>chat_bubble_outline</mat-icon>
-        {{ post.reply.length }}
-        <mat-icon *ngIf="post.verified">check_circle_outline</mat-icon>
+      <div class="forum-card-upvotes">
+        <mat-icon
+          (click)="vote(post, 'up')"
+          [ngStyle]="{ color: post.voted_up ? 'gray' : 'black' }"
+        >
+          keyboard_arrow_up</mat-icon
+        >
+        {{ post.upvote }}
+        <mat-icon
+          (click)="vote(post, 'down')"
+          [ngStyle]="{ color: post.voted_down ? 'gray' : 'black' }"
+        >
+          keyboard_arrow_down</mat-icon
+        >
       </div>
     </mat-card>
   </div>
@@ -32,41 +49,68 @@
 <ng-template #elseBlock>
   <div class="forum-post-view">
     <mat-card (click)="seePost('back')">
-      <div class="forum-card-body">
+      <div class="forum-card-body" (click)="seePost(seenPost)">
         <div class="forum-card-question">
           {{ seenPost.question }}
         </div>
-        <div class="forum-card-upvotes">
-          <mat-icon (click)="vote(seenPost, 'up')"> keyboard_arrow_up</mat-icon>
-          {{ seenPost.upvote }}
-          <mat-icon (click)="vote(seenPost, 'down')">
-            keyboard_arrow_down</mat-icon
-          >
+        <div class="forum-card-bottom">
+          <div class="forum-card-bottom-div">
+            <mat-icon>schedule</mat-icon>
+            {{ seenPost.time }}
+          </div>
+          <div class="forum-card-bottom-div">
+            <mat-icon>chat_bubble_outline</mat-icon>
+            {{ seenPost.reply.length }}
+          </div>
+          <div *ngIf="seenPost.verified" class="forum-card-bottom-div">
+            <mat-icon *ngIf="seenPost.verified">check_circle_outline</mat-icon>
+            verified
+          </div>
         </div>
       </div>
-      <div class="forum-card-bottom">
-        <mat-icon>schedule</mat-icon>
-        {{ seenPost.time }}
-        <mat-icon>chat_bubble_outline</mat-icon>
-        {{ seenPost.reply.length }}
+      <div class="forum-card-upvotes">
+        <mat-icon
+          (click)="vote(seenPost, 'up')"
+          [ngStyle]="{ color: seenPost.voted_up ? 'gray' : 'black' }"
+        >
+          keyboard_arrow_up</mat-icon
+        >
+        {{ seenPost.upvote }}
+        <mat-icon
+          (click)="vote(seenPost, 'down')"
+          [ngStyle]="{ color: seenPost.voted_down ? 'gray' : 'black' }"
+        >
+          keyboard_arrow_down</mat-icon
+        >
       </div>
     </mat-card>
-    <div class="forum-card-reply" *ngFor="let reply of seenPost.reply">
-      <div class="forum-card-body">
-        <div class="forum-card-question">
+
+    <div class="reply-card" *ngFor="let reply of seenPost.reply">
+      <div class="reply-card-body">
+        <div class="reply-card-question">
           {{ reply.name }}
         </div>
-        <div class="forum-card-upvotes">
-          <mat-icon (click)="vote(reply, 'up')"> keyboard_arrow_up</mat-icon>
-          {{ reply.upvote }}
-          <mat-icon (click)="vote(reply, 'down')">
-            keyboard_arrow_down</mat-icon
-          >
+        <div class="reply-card-bottom">
+          <div class="reply-card-bottom-div">
+            <mat-icon>schedule</mat-icon>
+            {{ seenPost.time }}
+          </div>
         </div>
       </div>
-      <div class="forum-card-bottom">
-        <mat-icon>schedule</mat-icon>
-        {{ reply.time }}
+      <div class="reply-card-upvotes">
+        <mat-icon
+          (click)="vote(reply, 'up')"
+          [ngStyle]="{ color: reply.voted_up ? 'gray' : 'black' }"
+        >
+          keyboard_arrow_up</mat-icon
+        >
+        {{ reply.upvote }}
+        <mat-icon
+          (click)="vote(reply, 'down')"
+          [ngStyle]="{ color: reply.voted_down ? 'gray' : 'black' }"
+        >
+          keyboard_arrow_down</mat-icon
+        >
       </div>
     </div>
   </div>
