@@ -78,6 +78,9 @@ export class ChecklistService {
     ToDo1.check.push(item2);
     this.checklist.push(ToDo1);
     //console.log(this.checklist);
+
+    this.appendCheckList();
+    this.appendCheckList();
     return this.checklist;
   }
 
