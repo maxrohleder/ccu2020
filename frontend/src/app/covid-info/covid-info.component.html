@@ -1,20 +1,23 @@
 <div class="forum-main-view" *ngIf="!seeInformation; else elseBlock">
   <div class="info-card">
-    <mat-card>
-      <p>Welcome, Get informations about your travel destination</p>
-    </mat-card>
+    <h2>
+      Welcome, <br />
+      Get informations about your travel destination
+    </h2>
   </div>
+
   <div class="info-card-selection">
     <div class="info-card-selection-country">
       <p>Select a County</p>
 
       <mat-expansion-panel>
         <mat-expansion-panel-header>
-          <mat-panel-title> {{ selectedCountry }} </mat-panel-title>
-          <mat-panel-description>
-            Select a County you want information for
-          </mat-panel-description>
+          <div class="expansion-panel-header">
+            <mat-panel-title> {{ selectedCountry }} </mat-panel-title>
+            <p>Select a County you want information for</p>
+          </div>
         </mat-expansion-panel-header>
+
         <div>
           <cdk-virtual-scroll-viewport
             [itemSize]="1 * 7"
@@ -33,11 +36,12 @@
 
       <mat-expansion-panel>
         <mat-expansion-panel-header>
-          <mat-panel-title> {{ selectedCity }} </mat-panel-title>
-          <mat-panel-description>
-            Select a City you want information for
-          </mat-panel-description>
+          <div class="expansion-panel-header">
+            <mat-panel-title> {{ selectedCity }} </mat-panel-title>
+            <p>Select a City you want information for</p>
+          </div>
         </mat-expansion-panel-header>
+
         <div>
           <div>
             <cdk-virtual-scroll-viewport
@@ -60,53 +64,61 @@
         </div>
       </mat-expansion-panel>
     </div>
-  </div>
 
-  <div class="profile-testbutton">
-    <button mat-raised-button color="primary" (click)="getInformation()">
-      Get information!
-    </button>
+    <div class="profile-testbutton">
+      <button mat-raised-button color="primary" (click)="getInformation()">
+        Get information!
+      </button>
+    </div>
   </div>
 </div>
 
 <ng-template #elseBlock>
   <mat-tab-group mat-align-tabs="center">
     <mat-tab label="Numbers">
-      <p>last updated {{ last_updated }}</p>
-      <div class="cases-overview">
-        <p>Covid-19 Cases overview</p>
-        <div class="cases-overview-left">
-          {{ country_data[selectedCountry]["caseOverView"]["total"] }}
-          <p>total</p>
+      <div class="tab-numbers">
+        <p class="last-updated">last updated {{ last_updated }}</p>
+        <div class="overview">
+          <p>Covid-19 Cases overview</p>
+          <div class="overview-body">
+            <div class="cases-overview">
+              {{ country_data[selectedCountry]["caseOverView"]["total"] }}
+              <p>total</p>
+            </div>
+            <div class="cases-overview">
+              {{ country_data[selectedCountry]["caseOverView"]["cured"] }}
+              <p>cured</p>
+            </div>
+            <div class="cases-overview">
+              {{ country_data[selectedCountry]["caseOverView"]["deaths"] }}
+              <p>deaths</p>
+            </div>
+          </div>
         </div>
-        <div class="cases-overview-mid">
-          {{ country_data[selectedCountry]["caseOverView"]["cured"] }}
-          <p>cured</p>
+        <div class="overview">
+          <p>New infections</p>
+          <div class="overview-body">
+            <div class="cases-overview">
+              {{ country_data[selectedCountry]["newInfections"]["prevDay"] }}
+              <p>Previous day</p>
+            </div>
+            <div class="cases-overview">
+              {{
+                country_data[selectedCountry]["newInfections"]["lastSevenDay"]
+              }}
+              <p>Last 7 days</p>
+            </div>
+            <div class="cases-overview">
+              {{ country_data[selectedCountry]["newInfections"]["weekly"] }}
+              <p>Weekly comp.</p>
+            </div>
+          </div>
         </div>
-        <div class="cases-overview-right">
-          {{ country_data[selectedCountry]["caseOverView"]["deaths"] }}
-          <p>deaths</p>
-        </div>
+        <iframe
+          [src]="this.src_name"
+          style="width: 100%; height: 600px; border: 0px none"
+        ></iframe>
       </div>
-      <div class="new-infections">
-        <p>New infections</p>
-        <div class="cases-overview-left">
-          {{ country_data[selectedCountry]["newInfections"]["prevDay"] }}
-          <p>Previous day</p>
-        </div>
-        <div class="cases-overview-mid">
-          {{ country_data[selectedCountry]["newInfections"]["lastSevenDay"] }}
-          <p>Last 7 days</p>
-        </div>
-        <div class="cases-overview-right">
-          {{ country_data[selectedCountry]["newInfections"]["weekly"] }}s
-          <p>Weekly comp.</p>
-        </div>
-      </div>
-      <iframe
-        [src]="this.src_name"
-        style="width: 100%; height: 600px; border: 0px none"
-      ></iframe>
     </mat-tab>
     <mat-tab label="Worldwide">
       <iframe
@@ -116,16 +128,22 @@
       ></iframe>
     </mat-tab>
     <mat-tab label="Restrictions">
+      <p class="last-updated">last updated {{ last_updated }}</p>
       <mat-card>
-        <p>last updated {{ last_updated }}</p>
-        <p>Offical website of Government of {{ selectedCountry }}:</p>
-        <a [href]="country_data[selectedCountry]['governmentLink']">
-          {{ country_data[selectedCountry]["governmentLink"] }}
-        </a>
-        <p>Offical website about Covid-19 of {{ selectedCountry }}:</p>
-        <a [href]="country_data[selectedCountry]['coronaLink']">
-          {{ country_data[selectedCountry]["coronaLink"] }}
-        </a>
+        <div class="restricton-body">
+          <div class="restricton-body-entry">
+            <p>Offical website of Government of {{ selectedCountry }}:</p>
+            <a [href]="country_data[selectedCountry]['governmentLink']">
+              {{ country_data[selectedCountry]["governmentLink"] }}
+            </a>
+          </div>
+          <div class="restricton-body-entry">
+            <p>Offical website about Covid-19 of {{ selectedCountry }}:</p>
+            <a [href]="country_data[selectedCountry]['coronaLink']">
+              {{ country_data[selectedCountry]["coronaLink"] }}
+            </a>
+          </div>
+        </div>
       </mat-card>
 
       <div class="info-expansion-panel">

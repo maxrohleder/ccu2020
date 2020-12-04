@@ -16,11 +16,9 @@ export class CovidInfoComponent implements OnInit {
   ) {}
 
   seeInformation = false;
-
   selectedCountry = 'Portugal';
   selectedCity = 'Lisbon';
   last_updated = '07.12.2020';
-
   src_name = null;
   newCity = new FormControl();
 
