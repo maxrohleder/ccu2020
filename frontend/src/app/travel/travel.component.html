@@ -189,18 +189,19 @@
           </mat-expansion-panel-header>
 
           <div class="mat-panel-body">
-            <mat-card *ngFor="let box of item.check">
+            <mat-divider></mat-divider>
+            <div *ngFor="let box of item.check">
               <div class="mat-panel-body-content">
-                <mat-checkbox class="example-margin" [(ngModel)]="box.checked">
-                  <div class="mat-panel-body-content-text">
-                    {{ box.name }}
-                  </div>
-                </mat-checkbox>
-                <button mat-raised-button color="primary" *ngIf="box.time">
-                  {{ box.time }}
-                </button>
+                <mat-checkbox [(ngModel)]="box.checked"> </mat-checkbox>
+                <div class="mat-panel-body-content-text">
+                  <p>{{ box.name }}</p>
+                  <button mat-stroked-button color="primary" *ngIf="box.time">
+                    {{ box.time }}
+                  </button>
+                </div>
               </div>
-            </mat-card>
+              <mat-divider></mat-divider>
+            </div>
           </div>
         </mat-expansion-panel>
       </mat-accordion>

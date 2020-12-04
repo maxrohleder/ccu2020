@@ -64,7 +64,7 @@ export class ChecklistService {
       checked: false,
     };
     var item2 = {
-      name: 'Make appointment for Covid-19 Test',
+      name: 'Go see doctor',
       checked: false,
     };
     var ToDo1 = {
