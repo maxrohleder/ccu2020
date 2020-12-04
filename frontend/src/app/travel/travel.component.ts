@@ -14,7 +14,7 @@ export class TravelComponent implements OnInit {
     private checklistService: ChecklistService
   ) {}
 
-  seeChecklist = true;
+  seeChecklist = false;
 
   checklist = [];
 
@@ -41,7 +41,6 @@ export class TravelComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.checklist = this.checklistService.getCheckList(null);
     //for  test
   }
   buttonOnClick(id): void {
