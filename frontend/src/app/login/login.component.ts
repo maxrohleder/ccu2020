@@ -33,4 +33,8 @@ export class LoginComponent {
   uiShownCallback(): void {
     console.log('UI shown');
   }
+
+  home(): void {
+    this.router.navigate(['home']);
+  }
 }

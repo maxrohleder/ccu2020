@@ -1,9 +1,21 @@
 <div class="login">
-  <h1>Covid Travel Buddy Login</h1>
+  <div class="greetings">
+    <h1>Login</h1>
 
-  <firebase-ui
-    (signInSuccessWithAuthResult)="successCallback($event)"
-    (signInFailure)="errorCallback($event)"
-    (uiShown)="uiShownCallback()"
-  ></firebase-ui>
+    <p>
+      Register with one of these options for the full functionality of this app.
+    </p>
+  </div>
+
+  <div class="click-area">
+    <firebase-ui
+      (signInSuccessWithAuthResult)="successCallback($event)"
+      (signInFailure)="errorCallback($event)"
+      (uiShown)="uiShownCallback()"
+    ></firebase-ui>
+
+    <mat-divider></mat-divider>
+
+    <button (click)="home()">Continue without Login</button>
+  </div>
 </div>
