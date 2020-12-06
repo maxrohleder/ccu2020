@@ -25,6 +25,13 @@ export class AccountService {
     private firebaseuiAngularLibraryService: FirebaseuiAngularLibraryService
   ) {
     firebaseuiAngularLibraryService.firebaseUiInstance.disableAutoSignIn();
+    afAuth.authState.subscribe((response) => {
+      if (response == null) {
+        router.navigate(['']);
+      } else {
+        router.navigate(['home']);
+      }
+    });
   }
 
   accountInfo: AccountInfo = {
@@ -51,7 +58,7 @@ export class AccountService {
     return new Observable((observer) => {
       this.afAuth.authState.subscribe((response) => {
         if (response) {
-          console.log('logged in :)', response.displayName, response.photoURL);
+          console.log('logged in :)', response.displayName);
           observer.next({
             isLoggedIn: true,
             name: response.displayName,
