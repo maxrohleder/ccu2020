@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AccountService } from '../account.service';
+import { AccountInfo, AccountService } from '../account.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,15 +10,23 @@ import { AccountService } from '../account.service';
 export class NavbarComponent implements OnInit {
   constructor(private router: Router, private account: AccountService) {
     account.accountUpdates().subscribe((info) => {
-      this.pictureUrl = info.picture;
+      this.UserInfo = info;
     });
   }
 
-  pictureUrl = '';
+  UserInfo: AccountInfo = {
+    name: '',
+    emailVerified: false,
+    email: '',
+    picture: 'https://avatars1.githubusercontent.com/u/65280810?s=400&v=4',
+    isLoggedIn: false,
+  };
+  home = false;
 
   ngOnInit(): void {
-    this.pictureUrl =
+    this.UserInfo.picture =
       'https://avatars1.githubusercontent.com/u/65280810?s=400&v=4';
+    this.UserInfo.isLoggedIn = false;
   }
 
   goToProfile(): void {

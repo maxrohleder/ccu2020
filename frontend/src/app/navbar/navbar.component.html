@@ -1,32 +1,38 @@
 <mat-toolbar class="navbar" color="primary">
-  <button
-    mat-icon-button
-    [matMenuTriggerFor]="menu"
-    class="example-icon"
-    aria-label="Example icon-button with a menu"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
+  <div *ngIf="home; else back">
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      class="example-icon"
+      aria-label="Example icon-button with a menu"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
 
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="goToProfile()">
-      <mat-icon>account_box</mat-icon>
-      <span>Profile</span>
-    </button>
-    <button mat-menu-item (click)="goToDashboard()">
-      <mat-icon>flight_takeoff</mat-icon>
-      <span>Travel</span>
-    </button>
-    <button mat-menu-item (click)="logOut()">
-      <mat-icon>login</mat-icon>
-      <span>LogOut</span>
-    </button>
-  </mat-menu>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="goToProfile()">
+        <mat-icon>account_box</mat-icon>
+        <span>Profile</span>
+      </button>
+      <button mat-menu-item (click)="goToDashboard()">
+        <mat-icon>flight_takeoff</mat-icon>
+        <span>Travel</span>
+      </button>
+      <button mat-menu-item (click)="logOut()">
+        <mat-icon>login</mat-icon>
+        <span>LogOut</span>
+      </button>
+    </mat-menu>
+  </div>
+
+  <ng-template #back>
+    <mat-icon class="navbar-right" (click)="goToDashboard()">home</mat-icon>
+  </ng-template>
 
   <span>Covid Travel Buddy</span>
 
-  <div>
+  <div class="navbar-right">
     <mat-icon (click)="goToNotifications()">notifications_none</mat-icon>
-    <img [src]="pictureUrl" (click)="goToProfile()" />
+    <img [src]="UserInfo.picture" (click)="goToProfile()" />
   </div>
 </mat-toolbar>

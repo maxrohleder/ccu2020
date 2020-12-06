@@ -7,7 +7,7 @@ import {
 } from 'firebaseui-angular';
 import { Observable } from 'rxjs';
 
-type AccountInfo = {
+export type AccountInfo = {
   isLoggedIn: boolean;
   name: string;
   email: string;
