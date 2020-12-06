@@ -10,6 +10,7 @@ import { FormControl } from '@angular/forms';
 export class ProfileComponent implements OnInit {
   constructor(private account: AccountService) {
     account.accountUpdates().subscribe((AccInfo) => {
+      console.log('image url:', AccInfo.picture);
       this.user.first = AccInfo.name.split(' ')[0];
       this.user.last = AccInfo.name.split(' ')[1];
       this.user.email = AccInfo.email;
@@ -100,8 +101,7 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  //edit profile func
-  edit(): void {
-    console.log('TODO: edit'); //TOOD maybe route
+  logOut(): void {
+    this.account.logOut();
   }
 }
