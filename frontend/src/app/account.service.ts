@@ -73,7 +73,8 @@ export class AccountService {
             name: '',
             email: '',
             emailVerified: false,
-            picture: '',
+            picture:
+              'https://avatars1.githubusercontent.com/u/65280810?s=400&v=4',
           });
         }
       });

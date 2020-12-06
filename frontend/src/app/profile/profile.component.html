@@ -2,10 +2,7 @@
   <h2>
     <p>{{ user.first }}, {{ user.last }}</p>
   </h2>
-  <img
-    src="https://avatars1.githubusercontent.com/u/42830642?s=400&u=55ada5125493fefb7b50eb5a331c2f6e6b263f0b&v=4"
-    alt="profil"
-  />
+  <img [src]="user.picture" alt="profil" />
 </div>
 <ng-template #elseBlock>
   <div class="profile-head">
@@ -34,12 +31,12 @@
       <mat-icon>phone</mat-icon>{{ user.phone }} <br />
     </div>
     <button
+      class="pink"
       mat-mini-fab
-      color="primary"
       aria-label="Example icon button with a menu icon"
-      (click)="edit()"
+      (click)="logOut()"
     >
-      <mat-icon>edit</mat-icon>
+      <mat-icon color="secondary">login</mat-icon>
     </button>
   </div>
 
