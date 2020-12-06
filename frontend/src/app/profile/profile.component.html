@@ -2,11 +2,8 @@
   <section *ngIf="user.loggedIn; else elseBlock">
     <h2>
       <p>{{ user.first }}, {{ user.last }}</p>
-      <img
-        src="https://avatars1.githubusercontent.com/u/42830642?s=400&u=55ada5125493fefb7b50eb5a331c2f6e6b263f0b&v=4"
-        alt="profil"
-      />
     </h2>
+    <img src="{{ user?.picture }}" alt="profil" />
   </section>
   <ng-template #elseBlock>
     <section>

@@ -2,33 +2,38 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import {
-  FirebaseUIModule,
+  FirebaseuiAngularLibraryService,
   FirebaseUISignInSuccessWithAuthResult,
 } from 'firebaseui-angular';
+import { Observable } from 'rxjs';
+
+type AccountInfo = {
+  isLoggedIn: boolean;
+  name: string;
+  email: string;
+  emailVerified: boolean;
+  picture: string;
+};
 
 @Injectable({
   providedIn: 'root',
 })
 export class AccountService {
-  constructor(private afAuth: AngularFireAuth, private router: Router) {
-    this.afAuth.authState.subscribe((d) => {
-      console.log('Subscribing to auth changes', d);
-      this.isLoggedIn = true;
-      this.email = d.email;
-      this.emailVerified = d.emailVerified;
-      this.name = d.displayName;
-      this.picture = d.photoURL;
-    });
+  constructor(
+    private afAuth: AngularFireAuth,
+    private router: Router,
+    private firebaseuiAngularLibraryService: FirebaseuiAngularLibraryService
+  ) {
+    firebaseuiAngularLibraryService.firebaseUiInstance.disableAutoSignIn();
   }
 
-  name = '';
-  first = '';
-  last = '';
-  email = '';
-  emailVerified = false;
-  picture = '';
-  isLoggedIn = false;
-  loginData: FirebaseUISignInSuccessWithAuthResult;
+  accountInfo: AccountInfo = {
+    name: '',
+    email: '',
+    emailVerified: false,
+    picture: '',
+    isLoggedIn: false,
+  };
 
   notification_list = [];
 
@@ -38,7 +43,41 @@ export class AccountService {
   }
   loginSucess(data: FirebaseUISignInSuccessWithAuthResult): void {
     // TODO extract user info
-    this.loginData = data;
+    console.log('login success callback');
+  }
+
+  // This function runs when subscribe() is called
+  public accountUpdates(): Observable<AccountInfo> {
+    return new Observable((observer) => {
+      this.afAuth.authState.subscribe((response) => {
+        if (response) {
+          console.log('logged in :)', response.displayName, response.photoURL);
+          observer.next({
+            isLoggedIn: true,
+            name: response.displayName,
+            email: response.email,
+            emailVerified: response.emailVerified,
+            picture: response.photoURL,
+          });
+        } else {
+          console.log('logged out :(');
+          observer.next({
+            isLoggedIn: false,
+            name: '',
+            email: '',
+            emailVerified: false,
+            picture: '',
+          });
+        }
+      });
+
+      // When the consumer unsubscribes, clean up data ready for next subscription.
+      return {
+        unsubscribe(): void {
+          this.afAuth.authState.unsubscribe();
+        },
+      };
+    });
   }
 
   getNotifications(): any[] {
