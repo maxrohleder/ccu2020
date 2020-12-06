@@ -8,13 +8,22 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./profile.component.sass'],
 })
 export class ProfileComponent implements OnInit {
-  constructor(private account: AccountService) {}
+  constructor(private account: AccountService) {
+    account.accountUpdates().subscribe((AccInfo) => {
+      this.user.first = AccInfo.name.split(' ')[0];
+      this.user.last = AccInfo.name.split(' ')[1];
+      this.user.email = AccInfo.email;
+      this.user.loggedIn = AccInfo.isLoggedIn;
+      this.user.picture = AccInfo.picture;
+    });
+  }
   user = {
-    first: this.account.first,
-    last: this.account.first,
+    first: '',
+    last: '',
     bday: null, //this.account.bday,
     adress: null, //this.account.adress,
-    email: this.account.email,
+    picture: 'https://avatars1.githubusercontent.com/u/65280810?s=400&v=4',
+    email: '',
     phone: null, ////this.account.phone,
     loggedIn: null, //this.account.loggedIn //TODO
     vaccinations: [],

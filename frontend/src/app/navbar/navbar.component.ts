@@ -8,13 +8,17 @@ import { AccountService } from '../account.service';
   styleUrls: ['./navbar.component.sass'],
 })
 export class NavbarComponent implements OnInit {
-  constructor(private router: Router, private account: AccountService) {}
+  constructor(private router: Router, private account: AccountService) {
+    account.accountUpdates().subscribe((info) => {
+      this.pictureUrl = info.picture;
+    });
+  }
 
-  picture_url = this.account.picture;
+  pictureUrl = '';
 
   ngOnInit(): void {
-    this.picture_url =
-      'https://avatars1.githubusercontent.com/u/65280810?s=400&v=4'; //TOFO FIX ACCOUNT SERVICE PIC
+    this.pictureUrl =
+      'https://avatars1.githubusercontent.com/u/65280810?s=400&v=4';
   }
 
   goToProfile(): void {

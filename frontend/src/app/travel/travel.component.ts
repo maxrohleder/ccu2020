@@ -12,17 +12,24 @@ export class TravelComponent implements OnInit {
   constructor(
     private account: AccountService,
     private checklistService: ChecklistService
-  ) {}
+  ) {
+    account.accountUpdates().subscribe((info) => {
+      this.user.name = info.name;
+      this.user.email = info.email;
+      this.user.loggedIn = info.isLoggedIn;
+      this.user.picture = info.picture;
+    });
+  }
 
   seeChecklist = false;
 
   checklist = [];
 
   user = {
-    name: this.account.name,
-    email: this.account.email,
-    loggedIn: this.account.isLoggedIn,
-    picture: this.account.picture,
+    name: '',
+    email: '',
+    loggedIn: false,
+    picture: 'https://avatars1.githubusercontent.com/u/65280810?s=400&v=4',
   };
 
   button = {
@@ -41,7 +48,7 @@ export class TravelComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    //for  test
+    //for test
   }
   buttonOnClick(id): void {
     this.button[id] = !this.button[id];

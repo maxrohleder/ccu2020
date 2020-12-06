@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home.component';
 import { TravelComponent } from './travel/travel.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -11,7 +12,8 @@ import { NotificationComponent } from './notification/notification.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'home', component: TravelComponent },
+  { path: 'travel', component: TravelComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'news', component: NewsComponent },
   { path: 'forum', component: ForumComponent },
   { path: 'info', component: CovidInfoComponent },

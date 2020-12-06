@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="navbar" color="primary">
   <button
     mat-icon-button
     [matMenuTriggerFor]="menu"
@@ -25,9 +25,8 @@
 
   <span>Covid Travel Buddy</span>
 
-  <div class="navbar-right">
+  <div>
     <mat-icon (click)="goToNotifications()">notifications_none</mat-icon>
-
-    <img [src]="picture_url" (click)="goToProfile()" />
+    <img [src]="pictureUrl" (click)="goToProfile()" />
   </div>
 </mat-toolbar>
