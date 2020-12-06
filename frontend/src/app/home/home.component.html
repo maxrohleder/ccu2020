@@ -1,17 +1,19 @@
 <div class="home">
-  <div>
+  <div class="greeting">
     <h1>Welcome to Covid Travel Buddy!</h1>
     Choose what you want to do:
   </div>
 
   <div class="dashboard">
     <div class="row">
-      <button><mat-icon>map</mat-icon></button>
-      <button><mat-icon>import_contacts</mat-icon></button>
+      <button (click)="goToTravel()"><mat-icon>map</mat-icon></button>
+      <button (click)="goToNews()"><mat-icon>import_contacts</mat-icon></button>
     </div>
     <div class="row">
-      <button><mat-icon>coronavirus</mat-icon></button>
-      <button><mat-icon>question_answer</mat-icon></button>
+      <button (click)="goToInfo()"><mat-icon>coronavirus</mat-icon></button>
+      <button (click)="goToForum()">
+        <mat-icon>question_answer</mat-icon>
+      </button>
     </div>
   </div>
 </div>
