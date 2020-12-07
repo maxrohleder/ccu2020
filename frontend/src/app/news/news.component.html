@@ -1,1 +1,16 @@
-<p>news works!</p>
+<div class="news">
+  <mat-card *ngFor="let news of news_list[selectedCountry]">
+    <div class="card">
+      <div class="body">
+        <h2>{{ news.head }}</h2>
+        <div class="news-bottom">
+          <p>{{ news.time }}</p>
+          <div class="link">
+            <p>{{ news.link }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="image"><img [src]="news.picture" alt="profil" /></div>
+    </div>
+  </mat-card>
+</div>
