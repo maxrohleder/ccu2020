@@ -43,7 +43,6 @@ export class AccountService {
   };
 
   notification_list = [];
-  news_list = {};
 
   logOut(): void {
     this.afAuth.signOut();
@@ -133,57 +132,5 @@ export class AccountService {
     this.notification_list.push(notification3);
 
     return this.notification_list;
-  }
-
-  getNews(): {} {
-    console.log('getNews');
-
-    var news1 = {
-      head: 'Germany reopens restaurants after protests in several cities',
-      link: 'https://www.nytimes.com',
-      picture:
-        'https://static01.nyt.com/images/2020/12/04/business/00China-vaccine-illo/00China-vaccine-illo-threeByTwoSmallAt2X.jpg?quality=75&auto=webp&disable=upscale',
-      time: '04.11.2020',
-    };
-
-    var news2 = {
-      head: 'Germany reopens restaurants after protests in several cities',
-      link: 'https://www.nytimes.com',
-      picture:
-        'https://static01.nyt.com/images/2020/12/04/business/00China-vaccine-illo/00China-vaccine-illo-threeByTwoSmallAt2X.jpg?quality=75&auto=webp&disable=upscale',
-      time: '04.11.2020',
-    };
-
-    var news3 = {
-      head: 'Germany runs out of toilet paper and reduces selling of packages',
-      link: 'https://www.nytimes.com',
-      picture:
-        'https://static01.nyt.com/images/2020/12/04/business/00China-vaccine-illo/00China-vaccine-illo-threeByTwoSmallAt2X.jpg?quality=75&auto=webp&disable=upscale',
-      time: '04.11.2020',
-    };
-
-    var news4 = {
-      head: 'Germany reopens restaurants after protests in several cities',
-      link: 'https://www.nytimes.com',
-      picture:
-        'https://static01.nyt.com/images/2020/12/04/business/00China-vaccine-illo/00China-vaccine-illo-threeByTwoSmallAt2X.jpg?quality=75&auto=webp&disable=upscale',
-      time: '04.11.2020',
-    };
-
-    this.news_list = {
-      ...this.news_list,
-      Germany: [],
-      Portugal: [],
-    };
-
-    this.news_list['Germany'].push(news1);
-    this.news_list['Germany'].push(news2);
-    this.news_list['Germany'].push(news3);
-    this.news_list['Germany'].push(news4);
-    this.news_list['Portugal'].push(news1);
-    this.news_list['Portugal'].push(news1);
-    this.news_list['Portugal'].push(news1);
-
-    return this.news_list;
   }
 }

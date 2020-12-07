@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountService } from '../account.service';
+import { CountryDataService } from '../country-data.service';
 
 @Component({
   selector: 'app-news',
@@ -7,15 +7,18 @@ import { AccountService } from '../account.service';
   styleUrls: ['./news.component.sass'],
 })
 export class NewsComponent implements OnInit {
-  constructor(private account: AccountService) {}
+  constructor(private countryDataService: CountryDataService) {}
 
   news_list = {};
   selectedCountry = 'Portugal';
 
-  countries = ['Germany', 'France', 'Portugal', 'Spain', 'USA'];
+  country_list = ['Germany', 'France', 'Portugal', 'Spain', 'USA'];
 
   ngOnInit(): void {
-    this.news_list = this.account.getNews();
+    this.news_list = this.countryDataService.getNews();
+  }
+  setCountry(country): void {
+    this.selectedCountry = country;
   }
 }
 //<img [src]="news.picture" alt="profil" />

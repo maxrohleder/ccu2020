@@ -1,4 +1,24 @@
 <div class="news">
+  <div class="news-headder">
+    <div class="panel">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <div class="panel-header">
+            {{ selectedCountry }}
+          </div>
+        </mat-expansion-panel-header>
+        <div class="panel-body">
+          <div class="panel-content" *ngFor="let country of country_list">
+            <div class="panel-entry" (click)="setCountry(country)">
+              {{ country }}
+              <mat-divider></mat-divider>
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </div>
+  </div>
+
   <mat-card *ngFor="let news of news_list[selectedCountry]">
     <div class="card">
       <div class="body">
