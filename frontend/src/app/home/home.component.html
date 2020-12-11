@@ -6,13 +6,23 @@
 
   <div class="dashboard">
     <div class="row">
-      <button (click)="goToTravel()"><mat-icon>map</mat-icon></button>
-      <button (click)="goToNews()"><mat-icon>import_contacts</mat-icon></button>
+      <button (click)="goToTravel()">
+        <mat-icon>map</mat-icon>
+        <p>Travel</p>
+      </button>
+      <button (click)="goToNews()">
+        <mat-icon>import_contacts</mat-icon>
+        <p>News</p>
+      </button>
     </div>
     <div class="row">
-      <button (click)="goToInfo()"><mat-icon>coronavirus</mat-icon></button>
+      <button (click)="goToInfo()">
+        <mat-icon>coronavirus</mat-icon>
+        <p>Get Info</p>
+      </button>
       <button (click)="goToForum()">
         <mat-icon>question_answer</mat-icon>
+        <p>Forum</p>
       </button>
     </div>
   </div>
