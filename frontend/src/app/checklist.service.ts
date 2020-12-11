@@ -13,7 +13,6 @@ export class ChecklistService {
 
     var item1 = {
       name: 'Make appointment for Covid-19 Test',
-      time: '72 hours',
       checked: false,
     };
 
@@ -58,9 +57,9 @@ export class ChecklistService {
     //TODO SOME STUFF WITH input
     console.log(input);
 
+    //TODO 1----------------------------------------------------------------------------
     var item1 = {
       name: 'Make appointment for Covid-19 Test',
-      time: '72h',
       checked: false,
     };
     var item2 = {
@@ -73,14 +72,58 @@ export class ChecklistService {
       allchecked: false,
       check: [],
     };
-
     ToDo1.check.push(item1);
     ToDo1.check.push(item2);
     this.checklist.push(ToDo1);
-    //console.log(this.checklist);
+    //TODO 2----------------------------------------------------------------------------
+    var item3 = {
+      name: 'Conduct Covid-19 Test',
+      time: '72 hours',
+      checked: false,
+    };
+    var item4 = {
+      name: 'Upload Covid-19 Test result',
+      checked: false,
+    };
+    var item5 = {
+      name: 'Receive QR-Code for entry',
+      checked: false,
+    };
+    var ToDo2 = {
+      title: 'Valid Identification Card',
+      text: 'Check that validation is at least 6 weeks',
+      allchecked: false,
+      check: [],
+    };
+    ToDo2.check.push(item1);
+    ToDo2.check.push(item2);
+    ToDo2.check.push(item3);
+    ToDo2.check.push(item4);
 
-    this.appendCheckList();
-    this.appendCheckList();
+    this.checklist.push(ToDo2);
+    //TODO 3----------------------------------------------------------------------------
+    var ToDo3 = {
+      title: 'Foreign Health Insurance',
+      text: 'Check that validation is at least 6 weeks',
+      allchecked: false,
+      check: [],
+    };
+    ToDo3.check.push(item1);
+    ToDo3.check.push(item2);
+    this.checklist.push(ToDo3);
+    //TODO 4----------------------------------------------------------------------------
+    var ToDo4 = {
+      title: 'Check Vaccination report ',
+      text: 'Check that validation is at least 6 weeks.',
+      allchecked: false,
+      check: [],
+    };
+    ToDo4.check.push(item2);
+    ToDo4.check.push(item3);
+    ToDo4.check.push(item4);
+    this.checklist.push(ToDo4);
+
+    //console.log(this.checklist);
     return this.checklist;
   }
 
