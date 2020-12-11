@@ -122,8 +122,6 @@ export class ChecklistService {
     ToDo4.check.push(item3);
     ToDo4.check.push(item4);
     this.checklist.push(ToDo4);
-
-    //console.log(this.checklist);
     return this.checklist;
   }
 
