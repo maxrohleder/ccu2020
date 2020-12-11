@@ -338,6 +338,7 @@ export class CountryDataService {
 
     console.log(response);
     */
+
     return this.news_list;
   }
 
