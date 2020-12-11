@@ -64,14 +64,63 @@ export class ForumChatService {
       verified: false,
       reply: [],
     };
+    var post3 = {
+      question:
+        'Can I prevent being in quarantine in Portual if I travel by boat? ',
+      time: '19min',
+      upvote: 5,
+      voted: false,
+      voted_up: false,
+      voted_down: false,
+      verified: false,
+      reply: [],
+    };
+    var post4 = {
+      question: 'Where can i get a COVID test ASAP? ',
+      time: '32min',
+      upvote: 32,
+      voted: false,
+      voted_up: false,
+      voted_down: false,
+      verified: false,
+      reply: [],
+    };
+
+    var post5 = {
+      question:
+        'This lockdown sucks, do you guys know what i can do right now?',
+      time: '39min',
+      upvote: 7,
+      voted: false,
+      voted_up: false,
+      voted_down: false,
+      verified: false,
+      reply: [],
+    };
 
     post1.reply.push(reply1);
     post1.reply.push(reply2);
     post1.reply.push(reply3);
+
     post2.reply.push(reply1);
     post2.reply.push(reply2);
+
+    post3.reply.push(reply1);
+    post3.reply.push(reply2);
+    post3.reply.push(reply3);
+
+    post4.reply.push(reply1);
+    post4.reply.push(reply2);
+
+    post5.reply.push(reply1);
+    post5.reply.push(reply2);
+    post5.reply.push(reply3);
+
     this.all_posts.push(post1);
     this.all_posts.push(post2);
+    this.all_posts.push(post3);
+    this.all_posts.push(post4);
+    this.all_posts.push(post5);
 
     return this.all_posts;
   }
