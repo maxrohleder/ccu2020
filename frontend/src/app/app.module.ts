@@ -33,6 +33,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { NotificationComponent } from './notification/notification.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { HomeComponent } from './home/home.component';
     ScrollingModule,
     MatTabsModule,
     MatDividerModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
