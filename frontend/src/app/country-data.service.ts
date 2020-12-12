@@ -1,4 +1,30 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { MockCountryData } from './mock-objects/countryData';
+import { environment } from './../environments/environment';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { GET_COUNTRY_DATA_ROUTE } from '../environments/api';
+
+export type CountryData = {
+  short: string;
+  cities: string[];
+  caseOverView: {
+    total: number;
+    cured: number;
+    deaths: number;
+  };
+  newInfections: {
+    prevDay: string;
+    lastSevenDay: string;
+    weekly: string;
+  };
+  governmentLink: string;
+  coronaLink: string;
+  generalRestrictions: any[];
+  entryRestrictions: any[];
+  transitRestrictions: any[];
+  covidApp: any[];
+};
 
 @Injectable({
   providedIn: 'root',
@@ -169,6 +195,20 @@ export class CountryDataService {
     this.country_data['Germany']['covidApp'].push(news3);
 
     return this.country_data;
+  }
+
+  getCountryData2(): Observable<{}> {
+    console.log('get country_data');
+    console.log(MockCountryData);
+    //console.log(mockPosts);
+    // Getting posts from backend
+    /**
+     * Uncomment this line to use the backend
+     */
+    // return this.http.get<CountryData[]>(GET_COUNTRY_DATA_ROUTE);
+
+    // mocking posts for now TODO use posts from backend
+    return of(MockCountryData);
   }
 
   clearCountryData(): {} {
