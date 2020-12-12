@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { AccountService } from '../account.service';
-import { ChecklistService } from '../checklist.service';
+import { ChecklistService, ChecklistItem } from '../checklist.service';
 
 @Component({
   selector: 'app-travel',
@@ -115,7 +115,12 @@ export class TravelComponent implements OnInit {
       //chk all data filled
       if (pass_button && pass_form) {
         //if all correct -> generate checklist
-        this.checklist = this.checklistService.getCheckList(data);
+        this.checklistService
+          .getCheckList(data)
+          .subscribe((c: ChecklistItem[]) => {
+            this.checklist = c;
+          });
+
         this.seeChecklist = !this.seeChecklist; //switch to checklist view
       } else {
         //propmt error messages
