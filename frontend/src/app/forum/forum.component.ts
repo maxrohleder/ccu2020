@@ -28,7 +28,6 @@ export class ForumComponent implements OnInit {
 
   ngOnInit(): void {
     this.ForumChatService.getAllPosts().subscribe((posts: ForumPost[]) => {
-      console.log(posts, 'IN FOURM COMP');
       this.all_posts = posts;
     });
   }
@@ -62,15 +61,15 @@ export class ForumComponent implements OnInit {
   createPost(): void {
     console.log('seePost');
     if (this.newQuestion.value != null || this.newQuestion.value != undefined) {
-      var post = {
-        question: this.newQuestion.value,
-        time: '0min',
+      var post: ForumPost = {
+        text: this.newQuestion.value,
         upvote: 0,
         voted: false,
         voted_up: false,
         voted_down: false,
         verified: false,
-        reply: [],
+        creation: new Date('12-13-2020'),
+        replies: [],
       };
 
       this.all_posts.unshift(post);
@@ -86,16 +85,18 @@ export class ForumComponent implements OnInit {
   createReply(): void {
     console.log('seePost');
     if (this.newQuestion.value != null || this.newQuestion.value != undefined) {
-      var reply1 = {
-        name: this.newQuestion.value,
+      var reply1: ForumPost = {
+        text: this.newQuestion.value,
         upvote: 0,
         voted: false,
         voted_up: false,
         voted_down: false,
-        time: '0min',
+        verified: false,
+        creation: new Date('12-13-2020'),
+        replies: [],
       };
 
-      this.seenPost.reply.push(reply1);
+      this.seenPost.replies.push(reply1);
       this.newQuestion.reset();
 
       //PUSH TO BACKEND ?
