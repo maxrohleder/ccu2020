@@ -30,7 +30,7 @@ export class CovidInfoComponent implements OnInit {
     console.log(this.countries);
     this.countries.sort();
 
-    this.CountryDataService.getCountryData2().subscribe((countryData) => {
+    this.CountryDataService.getCountryData().subscribe((countryData) => {
       console.log(countryData);
       this.country_data = countryData;
     });

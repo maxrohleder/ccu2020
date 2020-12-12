@@ -5,7 +5,10 @@ import {
   FirebaseuiAngularLibraryService,
   FirebaseUISignInSuccessWithAuthResult,
 } from 'firebaseui-angular';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { MockNotification } from './mock-objects/notificationData';
+import { GET_NOTIFICATION_ROUTE } from '../environments/api';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export type AccountInfo = {
   isLoggedIn: boolean;
@@ -15,11 +18,19 @@ export type AccountInfo = {
   picture: string;
 };
 
+export type NotificationData = {
+  head: string;
+  text: string;
+  icon: string;
+  time: string;
+};
+
 @Injectable({
   providedIn: 'root',
 })
 export class AccountService {
   constructor(
+    private http: HttpClient,
     private afAuth: AngularFireAuth,
     private router: Router,
     private firebaseuiAngularLibraryService: FirebaseuiAngularLibraryService
@@ -88,49 +99,16 @@ export class AccountService {
     });
   }
 
-  getNotifications(): any[] {
-    console.log('getNotifications');
-    var notification1 = {
-      head: 'Flight cancellation',
-      text: 'flight got cancelled',
-      icon: 'airplanemode_inactive',
-      time: 'now',
-    };
-    var notification2 = {
-      head: 'Daily Case update',
-      text: '+ 2400 new cases',
-      icon: 'trending_up',
-      time: 'now',
-    };
-    var notification3 = {
-      head: 'Daily case update',
-      text: '+ 2400 new cases in Berlin',
-      icon: 'trending_up',
-      time: '16min',
-    };
-    var notification4 = {
-      head: 'Updated curfew from Monday on',
-      text: '23:00 h in Berlin',
-      icon: 'error_outline',
-      time: '32min',
-    };
-    var notification5 = {
-      head: 'Daily case update',
-      text: '- 2400 new cases in Berlin',
-      icon: 'trending_down',
-      time: '1h 32min',
-    };
+  getNotification(): Observable<NotificationData[]> {
+    console.log('get country_data');
+    //console.log(mockPosts);
+    // Getting posts from backend
+    /**
+     * Uncomment this line to use the backend
+     */
+    // return this.http.get<NotificationData[]>(GET_NOTIFICATION_ROUTE);
 
-    this.notification_list.push(notification1);
-    this.notification_list.push(notification2);
-    this.notification_list.push(notification3);
-    this.notification_list.push(notification4);
-    this.notification_list.push(notification5);
-    this.notification_list.push(notification5);
-    this.notification_list.push(notification1);
-    this.notification_list.push(notification4);
-    this.notification_list.push(notification3);
-
-    return this.notification_list;
+    // mocking posts for now TODO use posts from backend
+    return of(MockNotification);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CountryDataService } from '../country-data.service';
+import { CountryDataService, NewsData } from '../country-data.service';
 
 @Component({
   selector: 'app-news',
@@ -15,7 +15,9 @@ export class NewsComponent implements OnInit {
   country_list = ['Germany', 'France', 'Portugal', 'Spain', 'USA'];
 
   ngOnInit(): void {
-    this.news_list = this.countryDataService.getNews();
+    this.countryDataService.getNewsData().subscribe((n: NewsData[]) => {
+      this.news_list = n;
+    });
   }
   setCountry(country): void {
     this.selectedCountry = country;

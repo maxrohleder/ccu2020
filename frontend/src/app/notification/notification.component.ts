@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountService } from '../account.service';
+import { AccountService, NotificationData } from '../account.service';
 
 @Component({
   selector: 'app-notification',
@@ -12,6 +12,8 @@ export class NotificationComponent implements OnInit {
   notification_list = [];
 
   ngOnInit(): void {
-    this.notification_list = this.account.getNotifications();
+    this.account.getNotification().subscribe((n: NotificationData[]) => {
+      this.notification_list = n;
+    });
   }
 }
