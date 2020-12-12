@@ -4,6 +4,13 @@ This backend shall serve the purose of storing user specific information for the
 
 All transferred data objects shall be typed in front and backend.
 
+# Quickstart
+
+In folder /backend:
+
+'npm i'
+'npm start'
+
 # Project Setup
 
 ![](https://media.prod.mdn.mozit.cloud/attachments/2016/12/06/14456/6a97461a03a5329243b994347c47f12b/MVC%20Express.png)
@@ -40,8 +47,8 @@ GET /api/settings
 
 - Routes and Routers: A route is a link from a client request to a controller method. Routes are structures by routers. **There is exactly one Route per thematic.**
 
-# to make things easier
+# Links
 
 - [nodemon](https://www.npmjs.com/package/nodemon) will automatically reload the backend when file changes occur
 
-- good tutorial [here](https://medium.com/javascript-in-plain-english/typescript-node-js-express-js-create-a-backend-application-f5110dbe5c19)
+- this [basic express tutorial](https://medium.com/javascript-in-plain-english/typescript-node-js-express-js-create-a-backend-application-f5110dbe5c19) will help you setup the controller/router scheme.
