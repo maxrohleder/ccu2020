@@ -1,133 +1,48 @@
+import { mockPosts } from './mock-objects/forumPosts';
+import { environment } from './../environments/environment';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { GET_FORUM_MESSAGES_ROUTE } from '../environments/api';
+import { Observable, of } from 'rxjs';
+
+export type ForumPost = {
+  text: string;
+  upvote: number;
+  voted: boolean;
+  voted_up: boolean;
+  voted_down: boolean;
+  verified: boolean;
+  creation: Date;
+  replies: ForumPost[];
+};
 
 @Injectable({
   providedIn: 'root',
 })
 export class ForumChatService {
-  constructor() {}
-  all_posts = [];
+  constructor(private http: HttpClient) {}
+  // load the mock data from mock-objects
+  allPosts: ForumPost[] = mockPosts;
 
-  updatePosts(all_posts_ts): void {
-    this.all_posts = all_posts_ts;
+  updatePosts(newAllPosts: ForumPost[]): void {
+    this.allPosts = newAllPosts;
   }
 
-  //TODO FROM BACK-END
-  getAllPosts(): any[] {
+  getAllPosts(): Observable<ForumPost[]> {
     console.log('getPosts');
+    // Getting posts from backend
+    /**
+     * Uncomment this line to use the backend
+     */
+    // return this.http.get<ForumPost[]>(GET_FORUM_MESSAGES_ROUTE);
 
-    //TODO FROM BACK-END
-
-    var reply1 = {
-      name: 'Would like to know that too',
-      upvote: 31,
-      voted: false,
-      voted_up: false,
-      voted_down: false,
-      time: '16min',
-    };
-    var reply2 = {
-      name: 'Good Question!',
-      upvote: 5,
-      voted: false,
-      voted_up: false,
-      voted_down: false,
-      time: '6min',
-    };
-    var reply3 = {
-      name: 'I think so ?!',
-      upvote: 2,
-      voted: false,
-      voted_up: false,
-      voted_down: false,
-      time: '1min',
-    };
-
-    var post1 = {
-      question: 'Can I still go to the beach during the curfew?',
-      time: '15min',
-      upvote: 150,
-      voted: false,
-      voted_up: false,
-      voted_down: false,
-      verified: true,
-      reply: [],
-    };
-
-    var post2 = {
-      question:
-        'Can I prevent being in quarantine in Germany if I travel by transit through belgium? ',
-      time: '16min',
-      upvote: 50,
-      voted: false,
-      voted_up: false,
-      voted_down: false,
-      verified: false,
-      reply: [],
-    };
-    var post3 = {
-      question:
-        'Can I prevent being in quarantine in Portual if I travel by boat? ',
-      time: '19min',
-      upvote: 5,
-      voted: false,
-      voted_up: false,
-      voted_down: false,
-      verified: false,
-      reply: [],
-    };
-    var post4 = {
-      question: 'Where can i get a COVID test ASAP? ',
-      time: '32min',
-      upvote: 32,
-      voted: false,
-      voted_up: false,
-      voted_down: false,
-      verified: false,
-      reply: [],
-    };
-
-    var post5 = {
-      question:
-        'This lockdown sucks, do you guys know what i can do right now?',
-      time: '39min',
-      upvote: 7,
-      voted: false,
-      voted_up: false,
-      voted_down: false,
-      verified: false,
-      reply: [],
-    };
-
-    post1.reply.push(reply1);
-    post1.reply.push(reply2);
-    post1.reply.push(reply3);
-
-    post2.reply.push(reply1);
-    post2.reply.push(reply2);
-
-    post3.reply.push(reply1);
-    post3.reply.push(reply2);
-    post3.reply.push(reply3);
-
-    post4.reply.push(reply1);
-    post4.reply.push(reply2);
-
-    post5.reply.push(reply1);
-    post5.reply.push(reply2);
-    post5.reply.push(reply3);
-
-    this.all_posts.push(post1);
-    this.all_posts.push(post2);
-    this.all_posts.push(post3);
-    this.all_posts.push(post4);
-    this.all_posts.push(post5);
-
-    return this.all_posts;
+    // mocking posts for now TODO use posts from backend
+    return of(mockPosts);
   }
 
-  clearPosts(): any[] {
-    this.all_posts = [];
+  clearPosts(): ForumPost[] {
+    this.allPosts = [];
     console.log('clear all_posts');
-    return this.all_posts;
+    return this.allPosts;
   }
 }
