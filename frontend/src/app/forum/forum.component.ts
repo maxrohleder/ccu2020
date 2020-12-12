@@ -2,6 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ForumChatService } from '../forum-chat.service';
 
+export type ForumPost = {
+  text: string;
+  upvote: number;
+  voted: boolean;
+  voted_up: boolean;
+  voted_down: boolean;
+  verified: boolean;
+  creation: Date;
+  replies: ForumPost[];
+};
 @Component({
   selector: 'app-forum',
   templateUrl: './forum.component.html',
@@ -17,7 +27,10 @@ export class ForumComponent implements OnInit {
   newQuestion = new FormControl();
 
   ngOnInit(): void {
-    this.all_posts = this.ForumChatService.getAllPosts();
+    this.ForumChatService.getAllPosts().subscribe((posts: ForumPost[]) => {
+      console.log(posts, 'IN FOURM COMP');
+      this.all_posts = posts;
+    });
   }
 
   seePost(post): void {

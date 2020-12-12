@@ -3,16 +3,18 @@
     <mat-card *ngFor="let post of all_posts">
       <div class="forum-card-body" (click)="seePost(post)">
         <div class="forum-card-question">
-          {{ post.question }}
+          {{ post.text }}
         </div>
         <div class="forum-card-bottom">
           <div class="forum-card-bottom-div">
             <mat-icon>schedule</mat-icon>
-            {{ post.time }}
+            {{ post.creation.getUTCMonth() + 1 }}
+            {{ post.creation.getUTCDate() }}
+            {{ post.creation.getUTCFullYear() }}
           </div>
           <div class="forum-card-bottom-div">
             <mat-icon>chat_bubble_outline</mat-icon>
-            {{ post.reply.length }}
+            {{ post.replies.length }}
           </div>
           <div *ngIf="post.verified" class="forum-card-bottom-div">
             <mat-icon *ngIf="post.verified">check_circle_outline</mat-icon>
@@ -51,16 +53,18 @@
     <mat-card (click)="seePost('back')">
       <div class="forum-card-body" (click)="seePost(seenPost)">
         <div class="forum-card-question">
-          {{ seenPost.question }}
+          {{ seenPost.text }}
         </div>
         <div class="forum-card-bottom">
           <div class="forum-card-bottom-div">
             <mat-icon>schedule</mat-icon>
-            {{ seenPost.time }}
+            {{ seenPost.creation.getUTCMonth() + 1 }}
+            {{ seenPost.creation.getUTCDate() }}
+            {{ seenPost.creation.getUTCFullYear() }}
           </div>
           <div class="forum-card-bottom-div">
             <mat-icon>chat_bubble_outline</mat-icon>
-            {{ seenPost.reply.length }}
+            {{ seenPost.replies.length }}
           </div>
           <div *ngIf="seenPost.verified" class="forum-card-bottom-div">
             <mat-icon *ngIf="seenPost.verified">check_circle_outline</mat-icon>
@@ -85,15 +89,17 @@
       </div>
     </mat-card>
 
-    <div class="reply-card" *ngFor="let reply of seenPost.reply">
+    <div class="reply-card" *ngFor="let reply of seenPost.replies">
       <div class="reply-card-body">
         <div class="reply-card-question">
-          {{ reply.name }}
+          {{ reply.text }}
         </div>
         <div class="reply-card-bottom">
           <div class="reply-card-bottom-div">
             <mat-icon>schedule</mat-icon>
-            {{ seenPost.time }}
+            {{ reply.creation.getUTCMonth() + 1 }}
+            {{ reply.creation.getUTCDate() }}
+            {{ reply.creation.getUTCFullYear() }}
           </div>
         </div>
       </div>

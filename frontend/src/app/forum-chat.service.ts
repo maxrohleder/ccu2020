@@ -30,6 +30,7 @@ export class ForumChatService {
 
   getAllPosts(): Observable<ForumPost[]> {
     console.log('getPosts');
+    //console.log(mockPosts);
     // Getting posts from backend
     /**
      * Uncomment this line to use the backend

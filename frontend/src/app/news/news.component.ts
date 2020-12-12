@@ -21,4 +21,3 @@ export class NewsComponent implements OnInit {
     this.selectedCountry = country;
   }
 }
-//<img [src]="news.picture" alt="profil" />
