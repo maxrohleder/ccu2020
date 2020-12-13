@@ -1,5 +1,7 @@
 export const environment = {
   production: true,
+  useBackend: false,
+  endpoint: 'https://<TODO set endpoint on deployment>',
   firebaseConfig: {
     apiKey: 'AIzaSyDPfMgaJJLAL_Gi7Y8EjvzDQ2xcxrcTDJA',
     authDomain: 'covid-travel-buddy.firebaseapp.com',
