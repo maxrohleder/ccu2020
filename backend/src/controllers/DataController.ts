@@ -1,3 +1,8 @@
+import {
+  CountriesData,
+  NewsByCountriesData,
+  NotificationData,
+} from "../custom-types";
 import { MockCountryData } from "../mock-objects/countryData";
 import { MockNewsData } from "../mock-objects/newsData";
 import { MockNotification } from "../mock-objects/notificationData";
@@ -8,15 +13,15 @@ class DataController {
     };
   }
 
-  getAllNews() {
+  getAllNews(): NewsByCountriesData {
     return MockNewsData;
   }
 
-  getAllAlerts() {
+  getAllAlerts(): NotificationData[] {
     return MockNotification;
   }
 
-  getAllCountryInfo() {
+  getAllCountryInfo(): CountriesData {
     return MockCountryData;
   }
 }
