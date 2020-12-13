@@ -7,8 +7,8 @@ import MasterRouter from "./routers/MasterRouter";
 dotenv.config({ path: ".env" });
 
 /**
- * Express server application class.
- * @description Will later contain the routing system.
+ * Rest API implementation for the Covid Travel buddy. Routes defined in api.md
+ * @description Contains the routing system with one router/controller pair per theme.
  */
 class Server {
   public app = express();
@@ -21,5 +21,7 @@ server.app.use("/api", server.router);
 
 // make server listen on some port
 ((port = process.env.APP_PORT || 5000) => {
-  server.app.listen(port, () => console.log(`> Listening on port ${port}`));
+  server.app.listen(port, () =>
+    console.log(`> Listening http://localhost:${port}/`)
+  );
 })();

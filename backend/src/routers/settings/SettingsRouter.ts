@@ -17,9 +17,12 @@ class SettingsRouter {
    * Connect routes to their matching controller endpoints.
    */
   private _configure() {
-    this._router.get("/", (req: Request, res: Response, next: NextFunction) => {
-      res.status(200).json(this._controller.defaultMethod());
-    });
+    this._router.get(
+      "/checklist",
+      (req: Request, res: Response, next: NextFunction) => {
+        res.status(200).json(this._controller.getGeneralChecklist());
+      }
+    );
   }
 }
 
