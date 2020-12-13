@@ -8,6 +8,7 @@ class SettingsController {
     };
   }
   getGeneralChecklist(): ChecklistItem[] {
+    console.log("Checklist Requested");
     return MockChecklist;
   }
 }

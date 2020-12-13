@@ -9,6 +9,7 @@ class ForumController {
   }
 
   getAllPosts(): ForumPost[] {
+    console.log("Forum Requested");
     return mockPosts;
   }
 }

@@ -39,10 +39,10 @@ export class ProfileComponent implements OnInit {
     //for test
     this.user['first'] = 'Max';
     this.user['last'] = 'Rohleder';
-    this.user['bday'] = '19.04.1970';
+    this.user['bday'] = '19.04.1998';
     this.user['adress'] = 'Kaiserstraße 122, 76231 Karlsruhe, Germany';
-    this.user['email'] = 'wasEinDude@uni-lisboa.io';
-    this.user['phone'] = '+49 666 420 69';
+    this.user['email'] = 'sample-email@tecnico-ulisboa.pt';
+    this.user['phone'] = '+351 123 12 12';
     this.user['loggedIn'] = true;
 
     this.user['vaccinations'].push('Hae­mo­phi­lus In­flu­enzae-Typ-B');
