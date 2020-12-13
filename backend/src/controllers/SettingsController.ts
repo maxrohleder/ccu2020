@@ -1,3 +1,4 @@
+import { ChecklistItem } from "../custom-types";
 import { MockChecklist } from "../mock-objects/checklistData";
 
 class SettingsController {
@@ -6,7 +7,7 @@ class SettingsController {
       text: `You've reached the ${this.constructor.name} default method`,
     };
   }
-  getGeneralChecklist() {
+  getGeneralChecklist(): ChecklistItem[] {
     return MockChecklist;
   }
 }
