@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
     picture: 'https://avatars2.githubusercontent.com/u/24854741?s=400&v=4',
     email: '',
     phone: '', ////this.account.phone,
-    loggedIn: null, //this.account.loggedIn //TODO
+    loggedIn: null, //this.account.loggedIn
     vaccinations: [],
     passport: [],
     insurance: [],
@@ -41,7 +41,7 @@ export class ProfileComponent implements OnInit {
     this.user['last'] = 'Rohleder';
     this.user['bday'] = '19.04.1998';
     this.user['adress'] = 'Kaiserstraße 122, 76231 Karlsruhe, Germany';
-    this.user['email'] = 'sampleEmail@tecnicoulisboapt';
+    this.user['email'] = 'sample.email@tecnicoulisboa.pt';
     this.user['phone'] = '+351 123 12 12';
     this.user['loggedIn'] = true;
 
@@ -52,7 +52,7 @@ export class ProfileComponent implements OnInit {
     this.user['passport'].push('Deutsch');
     this.user['passport'].push('USA');
 
-    this.user['insurance'].push('Hoden Sack Versicherung');
+    this.user['insurance'].push('Boden Versicherung');
     this.user['insurance'].push('Haaraufall Versicherung');
     this.user['insurance'].push('Ge­bär­mut­ter­hals­krebs Versicherung');
 
@@ -73,7 +73,6 @@ export class ProfileComponent implements OnInit {
       this.user['vaccinations'].push(this.newEntry.value);
       console.log('vaccination added !' + this.newEntry.value);
       this.newEntry.reset();
-      //TODO PUSH CHANGES TO BACKEND
     }
   }
   addPassport(): void {
@@ -81,7 +80,6 @@ export class ProfileComponent implements OnInit {
       this.user['passport'].push(this.newEntry.value);
       console.log('passport added !');
       this.newEntry.reset();
-      //TODO PUSH CHANGES TO BACKEND
     }
   }
   addInsurance(): void {
@@ -89,7 +87,6 @@ export class ProfileComponent implements OnInit {
       this.user['insurance'].push(this.newEntry.value);
       console.log('insurance added !');
       this.newEntry.reset();
-      //TODO PUSH CHANGES TO BACKEND
     }
   }
   addLicense(): void {
@@ -97,7 +94,6 @@ export class ProfileComponent implements OnInit {
       this.user['license'].push(this.newEntry.value);
       console.log('license added !');
       this.newEntry.reset();
-      //TODO PUSH CHANGES TO BACKEND
     }
   }
 

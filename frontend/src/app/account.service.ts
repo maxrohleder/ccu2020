@@ -83,10 +83,10 @@ export class AccountService {
           observer.next({
             isLoggedIn: false,
             name: '',
-            email: '',
+            email: 'sample.email@tecnicoulisboa.pt',
             emailVerified: false,
             picture:
-              'https://avatars1.githubusercontent.com/u/65280810?s=400&v=4',
+              'https://avatars2.githubusercontent.com/u/24854741?s=400&v=4',
           });
         }
       });
