@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment.prod';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
@@ -106,9 +107,12 @@ export class AccountService {
     /**
      * Uncomment this line to use the backend
      */
-    // return this.http.get<NotificationData[]>(GET_NOTIFICATION_ROUTE);
-
-    // mocking posts for now TODO use posts from backend
-    return of(MockNotification);
+    if (environment.useBackend) {
+      // retrieve the info from the backend
+      return this.http.get<NotificationData[]>(GET_NOTIFICATION_ROUTE);
+    } else {
+      // mocking posts for now TODO use posts from backend
+      return of(MockNotification);
+    }
   }
 }

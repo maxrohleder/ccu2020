@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { environment } from './../environments/environment';
@@ -39,23 +40,19 @@ export type NewsData = {
   providedIn: 'root',
 })
 export class CountryDataService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   country_data = {};
   news_list = {};
 
   getCountryData(): Observable<{}> {
-    console.log('get country_data');
-    //console.log(mockPosts);
-    // Getting posts from backend
-    /**
-     * Uncomment this line to use the backend
-     */
-    // return this.http.get<{}>(GET_COUNTRY_DATA_ROUTE);
-
-    // mocking posts for now TODO use posts from backend
-    console.log(MockCountryData);
-    return of(MockCountryData);
+    if (environment.useBackend) {
+      // using backend
+      return this.http.get<{}>(GET_COUNTRY_DATA_ROUTE);
+    } else {
+      // mocking posts for now
+      return of(MockCountryData);
+    }
   }
 
   clearCountryData(): {} {
@@ -65,17 +62,14 @@ export class CountryDataService {
   }
 
   getNewsData(): Observable<{}> {
-    console.log('get country_data');
-    //console.log(mockPosts);
-    // Getting posts from backend
-    /**
-     * Uncomment this line to use the backend
-     */
-    // return this.http.get<{}>(GET_NEWS_ROUTE);
-
-    // mocking posts for now TODO use posts from backend
-    console.log(MockNewsData);
-    return of(MockNewsData);
+    if (environment.useBackend) {
+      // using backend
+      return this.http.get<{}>(GET_NEWS_ROUTE);
+    } else {
+      // mocking posts for now
+      console.log(MockNewsData);
+      return of(MockNewsData);
+    }
   }
 
   clearNewsList(): {} {

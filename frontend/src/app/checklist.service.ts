@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 import { MockChecklist } from './mock-objects/checklistData';
 import { environment } from './../environments/environment';
@@ -56,25 +57,19 @@ export class ChecklistService {
     this.checklist.push(ToDo1);
     //console.log(this.checklist);
 
-    //TODO VLT ZUM BACK-END SCHICKN
+    //TODO send to backend
 
     return this.checklist;
   }
 
   getCheckList(input): Observable<ChecklistItem[]> {
-    console.log('getCheckList');
-    console.log(input);
-    //TODO FROM BACK-END
-    //TODO SOME STUFF WITH input
-    // Getting posts from backend
-    /**
-     * Uncomment this line to use the backend
-     */
-    // return this.http.get<ChecklistItem[]>(GET_CHECKLIST_ROUTE);
-
-    // mocking posts for now TODO use posts from backend
-    console.log(MockChecklist);
-    return of(MockChecklist);
+    if (environment.useBackend) {
+      // use backend
+      return this.http.get<ChecklistItem[]>(GET_CHECKLIST_ROUTE);
+    } else {
+      // mocking posts for now
+      return of(MockChecklist);
+    }
   }
   //TODO FROM BACK-END
   clearCheckList(): any[] {

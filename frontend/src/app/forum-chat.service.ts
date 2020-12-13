@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { mockPosts } from './mock-objects/forumPosts';
 import { environment } from './../environments/environment';
 import { Injectable } from '@angular/core';
@@ -35,10 +36,13 @@ export class ForumChatService {
     /**
      * Uncomment this line to use the backend
      */
-    // return this.http.get<ForumPost[]>(GET_FORUM_MESSAGES_ROUTE);
-
-    // mocking posts for now TODO use posts from backend
-    return of(mockPosts);
+    if (environment.useBackend) {
+      // backend
+      return this.http.get<ForumPost[]>(GET_FORUM_MESSAGES_ROUTE);
+    } else {
+      // mocking posts for now TODO use posts from backend
+      return of(mockPosts);
+    }
   }
 
   clearPosts(): ForumPost[] {
