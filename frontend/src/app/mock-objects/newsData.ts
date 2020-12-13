@@ -1,4 +1,4 @@
-import { NewsData } from '../country-data.service';
+import { NewsData, NewsByCountriesData } from '../country-data.service';
 
 const news1: NewsData = {
   head: 'Germany reopens restaurants after protests in several cities',
@@ -98,7 +98,7 @@ const news12: NewsData = {
   time: new Date('10-13-2020'),
 };
 
-export const MockNewsData: {} = {
+export const MockNewsData: NewsByCountriesData = {
   Germany: [],
   France: [],
   Portugal: [],

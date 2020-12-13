@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { CountryDataService } from '../country-data.service';
+import { CountryDataService, CountriesData } from '../country-data.service';
 
 @Component({
   selector: 'app-covid-info',
@@ -30,10 +30,12 @@ export class CovidInfoComponent implements OnInit {
     console.log(this.countries);
     this.countries.sort();
 
-    this.CountryDataService.getCountryData().subscribe((countryData) => {
-      console.log(countryData);
-      this.country_data = countryData;
-    });
+    this.CountryDataService.getCountryData().subscribe(
+      (countryData: CountriesData) => {
+        console.log(countryData);
+        this.country_data = countryData;
+      }
+    );
   }
   setCountry(country): void {
     this.selectedCountry = country;
