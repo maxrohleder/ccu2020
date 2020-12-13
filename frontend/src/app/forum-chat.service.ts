@@ -1,8 +1,7 @@
-import { environment } from 'src/environments/environment';
 import { mockPosts } from './mock-objects/forumPosts';
-import { environment } from './../environments/environment';
+import { environment } from '../environments/environment';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { GET_FORUM_MESSAGES_ROUTE } from '../environments/api';
 import { Observable, of } from 'rxjs';
 

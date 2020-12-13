@@ -1,8 +1,7 @@
-import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 import { MockChecklist } from './mock-objects/checklistData';
-import { environment } from './../environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../environments/environment';
+import { HttpClient } from '@angular/common/http';
 import { GET_CHECKLIST_ROUTE } from '../environments/api';
 import { Observable, of } from 'rxjs';
 

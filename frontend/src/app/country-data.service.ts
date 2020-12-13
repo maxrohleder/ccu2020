@@ -1,7 +1,6 @@
-import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { environment } from './../environments/environment';
+import { environment } from '../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MockCountryData } from './mock-objects/countryData';
 import { MockNewsData } from './mock-objects/newsData';
