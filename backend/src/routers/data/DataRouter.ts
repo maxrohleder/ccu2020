@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response, Router } from "express";
-import NewsController from "../../controllers/NewsController";
+import DataController from "../../controllers/DataController";
 
-class NewsRouter {
+class DataRouter {
   private _router = Router();
-  private _controller = NewsController;
+  private _controller = DataController;
 
   get router() {
     return this._router;
@@ -23,4 +23,4 @@ class NewsRouter {
   }
 }
 
-export = new NewsRouter().router;
+export = new DataRouter().router;

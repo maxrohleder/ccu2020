@@ -1,10 +1,10 @@
 import { Router } from "express";
 import SettingsRouter from "./settings/SettingsRouter";
-import NewsRouter from "./news/NewsRouter";
+import DataRouter from "./data/DataRouter";
 
 class MasterRouter {
   private _router = Router();
-  private _subrouterNews = NewsRouter;
+  private _subrouterData = DataRouter;
   private _subrouterSettings = SettingsRouter;
 
   get router() {
@@ -19,7 +19,7 @@ class MasterRouter {
    * Connect routes to their matching routers
    */
   private _configure() {
-    this._router.use("/news", this._subrouterNews);
+    this._router.use("/data", this._subrouterData);
     this._router.use("/settings", this._subrouterSettings);
   }
 }
