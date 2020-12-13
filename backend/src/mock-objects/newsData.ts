@@ -1,3 +1,4 @@
+import { NewsByCountriesData } from "./../custom-types";
 import { NewsData } from "../custom-types";
 
 const news1: NewsData = {
@@ -98,7 +99,7 @@ const news12: NewsData = {
   time: new Date("10-13-2020"),
 };
 
-export const MockNewsData: {} = {
+export const MockNewsData: NewsByCountriesData = {
   Germany: [],
   France: [],
   Portugal: [],

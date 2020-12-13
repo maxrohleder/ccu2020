@@ -37,11 +37,27 @@ export type CountryData = {
   covidApp: any[];
 };
 
+export type CountriesData = {
+  Germany: CountryData;
+  France: CountryData;
+  Portugal: CountryData;
+  Spain: CountryData;
+  USA: CountryData;
+};
+
 export type NewsData = {
   head: string;
   link: string;
   picture: string;
   time: Date;
+};
+
+export type NewsByCountriesData = {
+  Germany: NewsData[];
+  France: NewsData[];
+  Portugal: NewsData[];
+  Spain: NewsData[];
+  USA: NewsData[];
 };
 
 export type AccountInfo = {

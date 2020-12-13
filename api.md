@@ -38,8 +38,8 @@ Used to retrieve global information displayed in the app. This includes country 
 !!! Currently returns Portugal, Germany, France, Spain and USA. GER & POR with News !!!
 
 - **GET** `/api/data/allCountries`
-  - response: JSON {<Country>: CountryData}
+  - response: JSON CountriesData
 - **GET** `/api/data/news`
-  - response: JSON {<Country>: NewsData[]}
+  - response: JSON NewsByCountriesData
 - **GET** `/api/data/alerts`
   - response: JSON NotificationData[]
