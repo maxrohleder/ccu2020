@@ -35,6 +35,22 @@ export type NewsData = {
   time: Date;
 };
 
+export type CountriesData = {
+  Germany: CountryData;
+  France: CountryData;
+  Portugal: CountryData;
+  Spain: CountryData;
+  USA: CountryData;
+};
+
+export type NewsByCountriesData = {
+  Germany: NewsData[];
+  France: NewsData[];
+  Portugal: NewsData[];
+  Spain: NewsData[];
+  USA: NewsData[];
+};
+
 @Injectable({
   providedIn: 'root',
 })
@@ -44,10 +60,10 @@ export class CountryDataService {
   country_data = {};
   news_list = {};
 
-  getCountryData(): Observable<{}> {
+  getCountryData(): Observable<CountriesData> {
     if (environment.useBackend) {
       // using backend
-      return this.http.get<{}>(GET_COUNTRY_DATA_ROUTE);
+      return this.http.get<CountriesData>(GET_COUNTRY_DATA_ROUTE);
     } else {
       // mocking posts for now
       return of(MockCountryData);
@@ -60,10 +76,10 @@ export class CountryDataService {
     return this.country_data;
   }
 
-  getNewsData(): Observable<{}> {
+  getNewsData(): Observable<NewsByCountriesData> {
     if (environment.useBackend) {
       // using backend
-      return this.http.get<{}>(GET_NEWS_ROUTE);
+      return this.http.get<NewsByCountriesData>(GET_NEWS_ROUTE);
     } else {
       // mocking posts for now
       console.log(MockNewsData);

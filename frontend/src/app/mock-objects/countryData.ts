@@ -1,4 +1,4 @@
-import { CountryData } from './../country-data.service';
+import { CountryData, CountriesData } from './../country-data.service';
 const Germany: CountryData = {
   short: 'DEU',
   cities: ['München', 'Berlin', 'Hamburg', 'Ingolstadt', 'Karlsruhe'],
@@ -109,7 +109,7 @@ const USA: CountryData = {
   covidApp: [],
 };
 
-export const MockCountryData: {} = {
+export const MockCountryData: CountriesData = {
   Germany: Germany,
   France: France,
   Portugal: Portugal,
