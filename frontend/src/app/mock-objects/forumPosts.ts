@@ -7,7 +7,7 @@ const reply1: ForumPost = {
   voted_up: false,
   voted_down: false,
   verified: false,
-  creation: new Date('12-13-2020'),
+  creation: '13.12.2020',
   replies: [],
 };
 const reply2: ForumPost = {
@@ -17,7 +17,7 @@ const reply2: ForumPost = {
   voted_up: false,
   voted_down: false,
   verified: false,
-  creation: new Date('12-13-2020'),
+  creation: '13.12.2020',
   replies: [],
 };
 const reply3: ForumPost = {
@@ -27,7 +27,7 @@ const reply3: ForumPost = {
   voted_up: false,
   voted_down: false,
   verified: false,
-  creation: new Date('11-13-2020'),
+  creation: '13.12.2020',
   replies: [],
 };
 
@@ -38,7 +38,7 @@ const post1: ForumPost = {
   voted_up: false,
   voted_down: false,
   verified: false,
-  creation: new Date('12-13-2020'),
+  creation: '13.12.2020',
   replies: [],
 };
 
@@ -50,7 +50,7 @@ const post2: ForumPost = {
   voted_up: false,
   voted_down: false,
   verified: false,
-  creation: new Date('12-13-2020'),
+  creation: '13.12.2020',
   replies: [],
 };
 const post3: ForumPost = {
@@ -60,7 +60,7 @@ const post3: ForumPost = {
   voted_up: false,
   voted_down: false,
   verified: false,
-  creation: new Date('11-13-2020'),
+  creation: '13.12.2020',
   replies: [],
 };
 const post4: ForumPost = {
@@ -70,7 +70,7 @@ const post4: ForumPost = {
   voted_up: false,
   voted_down: false,
   verified: false,
-  creation: new Date('11-13-2020'),
+  creation: '13.12.2020',
   replies: [],
 };
 
@@ -81,7 +81,7 @@ const post5: ForumPost = {
   voted_up: false,
   voted_down: false,
   verified: false,
-  creation: new Date('10-13-2020'),
+  creation: '13.12.2020',
   replies: [],
 };
 

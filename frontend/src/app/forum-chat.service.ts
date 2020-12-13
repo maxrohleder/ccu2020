@@ -12,7 +12,7 @@ export type ForumPost = {
   voted_up: boolean;
   voted_down: boolean;
   verified: boolean;
-  creation: Date;
+  creation: string;
   replies: ForumPost[];
 };
 

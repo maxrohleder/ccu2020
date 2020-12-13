@@ -8,9 +8,7 @@
         <div class="forum-card-bottom">
           <div class="forum-card-bottom-div">
             <mat-icon>schedule</mat-icon>
-            {{ post.creation.getUTCMonth() + 1 }}
-            {{ post.creation.getUTCDate() }}
-            {{ post.creation.getUTCFullYear() }}
+            {{ post.creation }}
           </div>
           <div class="forum-card-bottom-div">
             <mat-icon>chat_bubble_outline</mat-icon>
@@ -58,9 +56,7 @@
         <div class="forum-card-bottom">
           <div class="forum-card-bottom-div">
             <mat-icon>schedule</mat-icon>
-            {{ seenPost.creation.getUTCMonth() + 1 }}
-            {{ seenPost.creation.getUTCDate() }}
-            {{ seenPost.creation.getUTCFullYear() }}
+            {{ seenPost.creation }}
           </div>
           <div class="forum-card-bottom-div">
             <mat-icon>chat_bubble_outline</mat-icon>
@@ -97,9 +93,7 @@
         <div class="reply-card-bottom">
           <div class="reply-card-bottom-div">
             <mat-icon>schedule</mat-icon>
-            {{ reply.creation.getUTCMonth() + 1 }}
-            {{ reply.creation.getUTCDate() }}
-            {{ reply.creation.getUTCFullYear() }}
+            {{ reply.creation }}
           </div>
         </div>
       </div>

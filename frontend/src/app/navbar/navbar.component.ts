@@ -18,14 +18,14 @@ export class NavbarComponent implements OnInit {
     name: '',
     emailVerified: false,
     email: '',
-    picture: 'https://avatars1.githubusercontent.com/u/65280810?s=400&v=4',
+    picture: 'https://avatars2.githubusercontent.com/u/24854741?s=400&v=4',
     isLoggedIn: false,
   };
   home = false;
 
   ngOnInit(): void {
     this.UserInfo.picture =
-      'https://avatars1.githubusercontent.com/u/65280810?s=400&v=4';
+      'https://avatars2.githubusercontent.com/u/24854741?s=400&v=4';
     this.UserInfo.isLoggedIn = false;
   }
 

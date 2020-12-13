@@ -21,11 +21,11 @@ export class ProfileComponent implements OnInit {
   user = {
     first: '',
     last: '',
-    bday: null, //this.account.bday,
-    adress: null, //this.account.adress,
-    picture: 'https://avatars1.githubusercontent.com/u/65280810?s=400&v=4',
+    bday: '', //this.account.bday,
+    adress: '', //this.account.adress,
+    picture: 'https://avatars2.githubusercontent.com/u/24854741?s=400&v=4',
     email: '',
-    phone: null, ////this.account.phone,
+    phone: '', ////this.account.phone,
     loggedIn: null, //this.account.loggedIn //TODO
     vaccinations: [],
     passport: [],
@@ -41,7 +41,7 @@ export class ProfileComponent implements OnInit {
     this.user['last'] = 'Rohleder';
     this.user['bday'] = '19.04.1998';
     this.user['adress'] = 'Kaiserstraße 122, 76231 Karlsruhe, Germany';
-    this.user['email'] = 'sample-email@tecnico-ulisboa.pt';
+    this.user['email'] = 'sampleEmail@tecnicoulisboapt';
     this.user['phone'] = '+351 123 12 12';
     this.user['loggedIn'] = true;
 

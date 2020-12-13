@@ -1,17 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ForumChatService } from '../forum-chat.service';
+import { ForumChatService, ForumPost } from '../forum-chat.service';
 
-export type ForumPost = {
-  text: string;
-  upvote: number;
-  voted: boolean;
-  voted_up: boolean;
-  voted_down: boolean;
-  verified: boolean;
-  creation: Date;
-  replies: ForumPost[];
-};
 @Component({
   selector: 'app-forum',
   templateUrl: './forum.component.html',
@@ -68,7 +58,7 @@ export class ForumComponent implements OnInit {
         voted_up: false,
         voted_down: false,
         verified: false,
-        creation: new Date('12-13-2020'),
+        creation: '14.12.2020',
         replies: [],
       };
 
@@ -92,7 +82,7 @@ export class ForumComponent implements OnInit {
         voted_up: false,
         voted_down: false,
         verified: false,
-        creation: new Date('12-13-2020'),
+        creation: '14.12.2020',
         replies: [],
       };
 

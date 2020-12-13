@@ -29,7 +29,7 @@ export class TravelComponent implements OnInit {
     name: '',
     email: '',
     loggedIn: false,
-    picture: 'https://avatars1.githubusercontent.com/u/65280810?s=400&v=4',
+    picture: 'https://avatars2.githubusercontent.com/u/24854741?s=400&v=4',
   };
 
   button = {

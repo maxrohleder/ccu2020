@@ -32,7 +32,7 @@ export type NewsData = {
   head: string;
   link: string;
   picture: string;
-  time: Date;
+  time: string;
 };
 
 export type CountriesData = {
