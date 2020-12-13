@@ -1,13 +1,15 @@
 <div class="profile-head" *ngIf="user.loggedIn; else elseBlock">
   <h2>
-    <p>Welcome {{ user.first }} {{ user.last }}, <br />Plan your Travel</p>
+    <p>
+      Welcome <br />{{ user.first }} {{ user.last }} <br />Plan your Travel!
+    </p>
   </h2>
   <img [src]="user.picture" alt="profil" />
 </div>
 <ng-template #elseBlock>
   <div class="profile-head">
     <h2>
-      <p>Welcome, <br />Plan your Travel</p>
+      <p>Welcome, <br />Plan your Travel!</p>
     </h2>
     <img
       src="https://avatars2.githubusercontent.com/u/24854741?s=400&v=4"
