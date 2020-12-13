@@ -1,6 +1,6 @@
 <div class="profile-head" *ngIf="user.loggedIn; else elseBlock">
   <h2>
-    <p>{{ user.first }}, {{ user.last }}</p>
+    <p>Welcome {{ user.first }} {{ user.last }}, <br />Plan your Travel</p>
   </h2>
   <img [src]="user.picture" alt="profil" />
 </div>
