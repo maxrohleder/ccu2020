@@ -41,7 +41,7 @@ export class AccountService {
       if (response == null) {
         router.navigate(['']);
       } else {
-        router.navigate(['news']);
+        router.navigate(['home']);
       }
     });
   }
