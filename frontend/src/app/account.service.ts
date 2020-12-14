@@ -41,7 +41,7 @@ export class AccountService {
       if (response == null) {
         router.navigate(['']);
       } else {
-        router.navigate(['home']);
+        router.navigate(['news']);
       }
     });
   }
@@ -60,6 +60,7 @@ export class AccountService {
     this.afAuth.signOut();
     this.router.navigate(['']);
   }
+
   loginSucess(data: FirebaseUISignInSuccessWithAuthResult): void {
     // TODO extract user info
     console.log('login success callback');

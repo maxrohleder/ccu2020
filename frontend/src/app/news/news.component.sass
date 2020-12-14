@@ -2,7 +2,6 @@
     display: flex
     flex-direction: column
 
-
 .news-headder
     height: 5%
     padding: 5% 0% 5% 0%
@@ -11,7 +10,7 @@
     justify-content : center
     align-items : center
     align-content : space-around
-    
+
     background-color: #DFEAEF
 
 .panel
@@ -23,6 +22,7 @@
     flex-direction: column
     justify-content : center
     align-items : center
+
 .panel-header
     width: 100%
     display: flex
@@ -33,37 +33,50 @@
 .panel-entry
     padding: 0% 0% 20% 0%
 
-
 .card
     display: flex
     flex-direction: row
-    justify-content : flex-start
-    align-items : center
+    justify-content: flex-start
+    align-items: center
+    height: 10vh
+
+.mat-card
+    margin: 2px 2px 2px 2px
+    border: 1px #e6e6e6 solid
+    background: #f1f1f1
 
 .body
-    width: 80%
+    width: 80vw
     display: flex
     flex-direction: column
-    justify-content : space-between
-    padding-left: 2%
+    justify-content: space-between
+    padding: 0 10px 0 0
 
 .body h2
-    margin:  0% 0% 2% 0%
+    margin: 0% 0% 2% 0%
     font-size: 14px
     line-height: 18px
 
-.news-bottom 
+.news-bottom
     opacity: 50%
     display: flex
     flex-direction: row
     justify-content : flex-start
 
+.news-bottom p
+    margin: 0
+
 .link
-    padding: 0% 0% 0% 5%
+    width: 45vw
+    padding-left: 7px
 
+.link p
+    overflow: hidden
+    white-space: nowrap
+    text-overflow: ellipsis
 
-.image 
-    width : 20%
+.image
+    width : 20vw
 
-.image img 
-    max-width: 100%
+.image img
+    max-width: 10vh
