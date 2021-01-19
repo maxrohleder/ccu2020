@@ -25,8 +25,6 @@ To create a **new component** called xyz, run: `ng generate component xyz` or `n
 
 ## App views
 
-Granularity: Land oder Stadt?
-
 - Dashboard View: (beinhaltet Kacheln, die zu Kernfunktionalität der App führen)
   - News (Newsfeed aller neuer Regulierungen etc)
   - Get Informed (Seite mit Auswahl von Land --> Infos zu Numbers und Regulationen, zusätzlich Activities etc)
