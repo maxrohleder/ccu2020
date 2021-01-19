@@ -11,7 +11,13 @@ In these difficult times, travelling has become very strenuous. This is largely 
 
 The very first version of our Application **Covid Travel Buddy** is now released. See the screens below for a quick impression:
 
+| The dashboard | Updated Information | Real Time Warnings | Travel Planning |
+| :-----------: | :-----------------: | :----------------: | --------------- |
+
 ![dashboard](https://github.com/maxrohleder/ccu2020/blob/assets/img/dashboard.png)
+| ![news](https://github.com/maxrohleder/ccu2020/blob/assets/img/news.png)
+| ![ticker](https://github.com/maxrohleder/ccu2020/blob/assets/img/ticker.png)
+| ![travel](https://github.com/maxrohleder/ccu2020/blob/assets/img/travel.png)
 
 ## Quickstart
 
