@@ -28,13 +28,3 @@ After cloning the repository, **install** all dependencies: `npm i`
 To **compile** and preview the project, run: `ng serve --open`
 
 To create a **new component** called xyz, run: `ng generate component xyz` or `ng g c xyz`
-
-## App views
-
-- Dashboard View: (beinhaltet Kacheln, die zu Kernfunktionalität der App führen)
-  - News (Newsfeed aller neuer Regulierungen etc)
-  - Get Informed (Seite mit Auswahl von Land --> Infos zu Numbers und Regulationen, zusätzlich Activities etc)
-  - Trips (Reiseplanung in Bezug auf Einschränkungen, Start-Zwischen-Ende)
-- News
-- Get Informed
-- Trips
