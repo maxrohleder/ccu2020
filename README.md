@@ -5,6 +5,8 @@ This is the source code repository for the user centered design course 2020 at I
 Project Backlog:
 https://team-5-ccu.wixsite.com/website
 
+Want to test a [live version](https://covid-travel-buddy.web.app/)? (Note: Designed for mobile)
+
 ## Covid Travel Buddy
 
 In these difficult times, travelling has become very strenuous. This is largely due to regulations differing by region and often varying over time. We want to solve this issue by creating a simple web-app, that briefly informs about the circumstances of the destination country. Logically, our key user group will be travellers. That includes business travellers, tourists and exchange students.
